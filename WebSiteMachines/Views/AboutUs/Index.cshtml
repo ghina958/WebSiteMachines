@@ -1,0 +1,54 @@
+﻿@using WebSiteMachines.ViewModels.AboutUs
+@model AboutUsViewModel;
+
+@{
+    ViewData["Title"] = "AboutUsManage";
+    Layout = "_AdminLayout";
+}
+<section class="content">
+    <div class="card">
+        <div class="card-body row">
+            <div class="col-5 text-center d-flex align-items-center justify-content-center">
+                <div class="">
+                    <!-- Add any static content or logo here -->
+                </div>
+            </div>
+            <div class="col-7">
+                <form asp-action="Index" asp-controller="AboutUs" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Title">Title</label>
+                        <input asp-for="Title" class="form-control" placeholder="Title" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description">Description</label>
+                        <textarea asp-for="Description" class="form-control" rows="4" placeholder="Description"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label class="font-weight-bold">Slider Image</label>
+                        <input asp-for="MainImage" type="file" class="form-control" />
+                        @if (!string.IsNullOrEmpty(Model.MainImagePath))
+                        {
+                            <img src="@Model.MainImagePath" alt="Main Image" class="img-thumbnail mt-2" width="200" />
+                        }
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold">Additional Images</label>
+                        <input asp-for="AdditionalImages" type="file" class="form-control" multiple />
+                        @if (Model.AdditionalImagePaths != null && Model.AdditionalImagePaths.Any())
+                        {
+                            foreach (var imagePath in Model.AdditionalImagePaths)
+                            {
+                                <img src="@imagePath" alt="Additional Image" class="img-thumbnail mt-2" width="150" />
+                            }
+                        }
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" value="Update About Us" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

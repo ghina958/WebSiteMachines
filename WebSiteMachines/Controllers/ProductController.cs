@@ -1,11 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using WebSiteMachines.Interfaces;
 using WebSiteMachines.Models;
-using WebSiteMachines.ViewModels.Category;
 using WebSiteMachines.ViewModels.Product;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace WebSiteMachines.Controllers
 {
@@ -114,7 +111,7 @@ namespace WebSiteMachines.Controllers
                 {
                     Name = productVM.Name,
                     Description = productVM.Description,
-                    Image = imageUrl,
+                    ProductImage = imageUrl,
                     CategoryId = productVM.CategoryId
                     
 

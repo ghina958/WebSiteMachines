@@ -1,0 +1,44 @@
+﻿@model ProductViewModel
+
+@{
+	ViewData["Title"] = "Solution";
+	Layout = "_Layout";
+}
+
+<section class="our-achivement padd-80">
+	<div class="container">
+		@foreach(var item in Model.products)
+		{
+			<div class="section-title">
+				<div class="row">
+					<div class="col-md-4 col-sm-5 col-xs-12">
+						<h2>@item.Name</h2>
+						<span class="decor"></span>
+					</div>
+					<div class="col-md-8 col-sm-7 col-xs-12 font-20">
+						<p>
+							@item.Description
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 col-sm-6 col-xs-12">
+					<figure class="img-box">
+						@item.ProductImage
+						@* <img src="images/resource/1.jpg" alt=""> *@
+					</figure>
+				</div>
+				<div class="col-md-8 col-sm-12 col-xs-12">
+
+					<br>
+					<div class="text">
+						<p>We help interesting companies create and improve industry products and services through long lasting and mutually rewarding relationships They have got my project on time with the competition with a highly skilled, well-organized and experienced team.</p>
+					</div>
+					<br>
+
+				</div>
+			</div>
+		}
+	</div>
+</section>

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +13,7 @@
 
 <body>
 
-	<header class="main-header">
+	 <header class="main-header">
 		<div class="header-top">
 			<div class="container">
 				<!--Top Left-->
@@ -25,15 +26,15 @@
 				<!--Top Right-->
 				<div class="top-right pull-right">
 					<ul class="links-nav clearfix">
-						<li><a href="/DashboardAdmin/Index">Admin</a></li>
 						<li><a href="#">Leadership</a></li>
 						<li><a href="#">Industry News</a></li>
-						<li><a href="#">Contact Us</a></li>
+						<li><a href="#">Contact Us</a></li> 
+						<li><a href="/DashboardAdmin/Index">Admin</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
-		<div class="header-upper">
+		@* <div class="header-upper">
 			<div class="container">
 				<div class="clearfix">
 
@@ -61,13 +62,10 @@
 							<div class="icon-box"><span class="icon-chronometer-outline"></span></div>
 							Office Time : <span class="light-text">Monday to <br>Sunday 08:00 - 20:00</span>
 						</div>
-
-
 					</div>
-
 				</div>
 			</div>
-		</div>
+		</div> *@
 	</header>
 
 	<section class="mainmenu-wrapper stricky">
@@ -75,17 +73,10 @@
 			<nav class="mainmenu-holder pull-left">
 				<div class="nav-header">
 					<ul class="navigation">
-						<li>
-							<a asp-controller="Home" asp-action="Home">Home</a>
-						</li>
-						<li class="dropdown active">
-							<a href="#">About</a>
-							<ul class="submenu">
-								<li><a asp-controller="Home" asp-action="AboutUs">About Us</a></li>
-								<li><a href="team.html">Our Team</a></li>
-							</ul>
-						</li>
-						<li class="dropdown">
+						<li><a href="/Home/Home" class="logo"><img src="~/images/logo/logo.png"/></a></li>
+						<li><a href="/AboutUs/IndexHome">About Us</a></li>
+						
+						@* <li class="dropdown">
 							<a href="solution.html">Solutions</a>
 							<ul class="submenu">
 								<li><a href="agricultural-engineering.html">Agricultural Engineering</a></li>
@@ -95,9 +86,13 @@
 								<li><a href="petrolium.html">Petroleum and Gas</a></li>
 								<li><a href="power.html">Power and Energy</a></li>
 							</ul>
+						</li> *@
+						<li class="dropdown">
+							<partial name="_SelectListNav" />
 						</li>
+						
 						<li><a href="projects.html">Testimonial</a></li>
-						<li><a href="contact.html">Contact</a></li>
+						<li><a href="/ContactInfo/Index">Contact Us</a></li>
 					</ul>
 				</div>
 				<div class="nav-footer hidden-lg">
@@ -106,7 +101,6 @@
 					</ul>
 				</div>
 			</nav>
-
 		</div>
 	</section>
 

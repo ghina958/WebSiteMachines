@@ -1,0 +1,78 @@
+﻿@using WebSiteMachines.ViewModels.AboutUs
+@model AboutUsViewModel
+
+@{
+	ViewData["Title"] = "About Us";
+	Layout = "_Layout";
+}
+
+<div class="boxed_wrapper">
+	<!-- /main foto -->
+	<div class="inner-banner has-base-color-overlay text-center" style="background: url(images/background/inner-page.jpg);">
+		<div class="container">
+			<div class="box">
+				<h3>@Model.Title</h3>
+			</div><!-- /.box -->
+		</div><!-- /.container -->
+	</div>
+
+	<section class="about-industries sec_padd">
+		<div class="container">
+			<div class="section-title">
+				<div class="row">
+					<div class="col-md-4 col-sm-5 col-xs-12">
+						<h2>@Model.Title</h2>
+						<span class="decor"></span>
+					</div>
+					<div class="col-md-8 col-sm-7 col-xs-12 font-20">
+						<p>@Model.Description</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<div class="text">
+						<p>@Model.Description</p>
+					</div>
+					<br>
+					<br>
+					<figure class="img-box">
+						<img src="@Model.MainImagePath" alt="About Us Image">
+					</figure>
+				</div>
+
+				<div class="column col-md-6 col-sm-12 col-xs-12">
+					<div class="section-title inner">
+						<h2>Billing Address</h2>
+						<span class="decor"></span>
+					</div>
+					<div class="text">
+						<p>
+							Denouncing pleasure and praising pain was born and I will give you a complete account of the system expound the actual se teachings the great explorere of <br>the truth, the master-builder of human happiness.
+						</p>
+					</div>
+					<br>
+					<div class="border-bottom"></div>
+					<br>
+				</div>
+			</div>
+			<br><br>
+			<div class="border-bottom"></div>
+		</div>
+	</section>
+	@if (Model.AdditionalImagePaths != null && Model.AdditionalImagePaths.Any())
+    {
+	<section class="clients-section">
+		<div class="container">
+			<div class="client-carousel owl-carousel owl-theme">
+				@foreach (var imagePath in Model.AdditionalImagePaths)
+				{
+					<div class="item">
+						<img src="@imagePath" alt="Client Image" />
+					</div>
+				}
+			</div>
+		</div>
+	</section>
+	}
+</div>

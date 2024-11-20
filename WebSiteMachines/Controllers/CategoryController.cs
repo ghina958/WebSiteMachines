@@ -2,18 +2,54 @@
 using WebSiteMachines.Interfaces;
 using WebSiteMachines.Models;
 using WebSiteMachines.ViewModels.Category;
+using WebSiteMachines.ViewModels.Product;
 
 namespace WebSiteMachines.Controllers
 {
     public class CategoryController : Controller
     {
         private readonly ICategoryService _categoryService;
+        private readonly IProductService _productService;
 
-        public CategoryController(ICategoryService categoryService)
+		public CategoryController(ICategoryService categoryService, IProductService productService)
+		{
+			_categoryService = categoryService;
+			_productService = productService;
+		}
+
+
+
+		public async Task<IActionResult> DropdownSolution()
         {
-            _categoryService = categoryService;
-        }
-        public async Task<IActionResult> Index()
+            var all = await _categoryService.GetAllCategories();
+			
+			var model = new CategoryViewModel()
+            {
+                Categories = all
+            };
+
+			return PartialView("_SelectListNav", model);
+		}
+
+		public async Task<IActionResult> DropdownSolutionİtems(int id)
+		{
+			if (id <= 0)
+			{
+				return NotFound("Invalid category ID.");
+			}
+			var allProduct = await _productService.GetAll(new ProductSearchViewModel { CategoryId = id });
+			var model = new ProductViewModel()
+			{
+				products = allProduct
+			};
+			return View(model);
+		}
+		
+
+
+
+
+		public async Task<IActionResult> Index()
         {
             var allcategory = await _categoryService.GetAllCategories();
             ViewBag.BreadCrumbFirstItem = "Category List";

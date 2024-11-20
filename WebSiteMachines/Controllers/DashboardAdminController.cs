@@ -25,8 +25,6 @@ namespace WebSiteMachines.Controllers
                 CategoriesAmount = countOfAllCategories,
                 UsersAmount = countOfAllUsers,
                 ProductsAmount = countOfAllProducts,
-
-
             };
             return View(CountVM);
         }
