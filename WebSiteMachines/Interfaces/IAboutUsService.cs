@@ -7,9 +7,8 @@ namespace WebSiteMachines.Interfaces
 	{
 		Task<List<AboutUs>> GetAll();
 		Task<AboutUs> GetById();
-		bool Add(AboutUs aboutUs);
+		//bool Add(AboutUs aboutUs);
 		bool Update(AboutUs aboutUs);
-		//bool Delete(AboutUs aboutUs);
 		bool Save();
 	}
 }

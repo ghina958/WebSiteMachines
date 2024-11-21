@@ -21,11 +21,11 @@ namespace WebSiteMachines.Repositories
 			return  _context.AboutUs.FirstOrDefault();
 		}
 
-		public bool Add(AboutUs aboutUs)
-		{
-			_context.AboutUs.Add(aboutUs);
-			return Save();
-		}
+		//public bool Add(AboutUs aboutUs)
+		//{
+		//	_context.AboutUs.Add(aboutUs);
+		//	return Save();
+		//}
 		public bool Update(AboutUs aboutUs)
 		{
 			_context.AboutUs.Update(aboutUs);

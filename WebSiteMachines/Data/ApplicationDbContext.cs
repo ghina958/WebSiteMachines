@@ -43,7 +43,7 @@ namespace WebSiteMachines.Data
         public DbSet<Category> Category { get; set; }
         public DbSet<Product> Product { get; set; }
         public DbSet<ContactInfo> ContactInfo { get; set; }
-        public DbSet<MobileNumber> MobileNumber { get; set; }
+       
         public DbSet<AboutUs> AboutUs { get; set; }
         public DbSet<Service> Service { get; set; }
         public DbSet<SubService> SubServices { get; set; }

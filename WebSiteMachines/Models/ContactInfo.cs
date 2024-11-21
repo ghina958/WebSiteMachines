@@ -7,16 +7,18 @@ namespace WebSiteMachines.Models
         [Key]
         public int Id { get; set; }
       
-        [MaxLength(500)]
-        public string? Address { get; set; }
-
-        [EmailAddress] 
         [MaxLength(100)]
-        public string? Email { get; set; }
+		public string FullName { get; set; }
 
+		[EmailAddress] 
         [MaxLength(100)]
-        public string? WorkingHours { get; set; }
+		public string Email { get; set; }
 
-        public virtual ICollection<MobileNumber>? MobileNumbers { get; set; }
-    }
+		[MaxLength(300)]
+		public string Message { get; set; }
+
+
+
+
+	}
 }
