@@ -1,4 +1,30 @@
 ﻿@using WebSiteMachines.Interfaces
+
+@inject ICategoryService _categoryService
+@{
+    List<Category> dropDownCategories = await _categoryService.GetAllCategories();
+}
+
+
+<li class="dropdown">
+    <a href="Category/DropdownSolution">Solutions</a>
+    <ul class="submenu">
+        @foreach (var item in dropDownCategories)
+        {
+            <li>
+                <a asp-controller="Category" asp-action="DropdownSolutionItems" asp-route-id="@item.Id">
+                    @item.Name
+                </a>
+            </li>
+        }
+    </ul>
+
+</li>
+
+
+
+
+@* @using WebSiteMachines.Interfaces
 @inject ICategoryService _categoryService;
 @{
     var dropDownCategories = await _categoryService.GetAllCategories();
@@ -6,15 +32,25 @@
 
 <li class="dropdown">
     <a href="Category/DropdownSolution">Solutions</a>
-        <ul class="submenu">
-            @foreach (var item in Model.dropDownCategories)
-            {
-                <li>
-                    <a asp-controller="Category" asp-action="DropdownSolutionItems" asp-route-id="@item.Id">
-                        @item.Name
-                    </a>
-                </li>
-            }
-        </ul>
-    
+    <ul class="submenu">
+        @foreach (var item in Model.dropDownCategories)
+        {
+            <li>
+                <a asp-controller="Category" asp-action="DropdownSolutionItems" asp-route-id="@item.Id">
+                    @item.Name
+                </a>
+            </li>
+        }
+    </ul>
+
 </li>
+
+ *@
+
+
+
+
+
+
+
+
