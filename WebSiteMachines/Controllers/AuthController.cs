@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using WebSiteMachines.Data;
-using WebSiteMachines.Models;
-using WebSiteMachines.ViewModels.Login;
 
 namespace WebSiteMachines.Controllers
 {

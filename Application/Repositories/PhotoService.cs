@@ -3,6 +3,7 @@ using CloudinaryDotNet.Actions;
 using Microsoft.Extensions.Options;
 using WebSiteMachines.Helpers;
 using WebSiteMachines.Interfaces;
+using Microsoft.AspNetCore.Http;
 
 namespace WebSiteMachines.Repositories
 {

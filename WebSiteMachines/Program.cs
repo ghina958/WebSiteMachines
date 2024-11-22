@@ -17,6 +17,7 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IPhotoService, PhotoService>();
 builder.Services.AddScoped<IAboutUsService, AboutUsService>();
+builder.Services.AddScoped<IContactInfoService, ContactInfoService>();
 builder.Services.AddScoped<IEmailSender, EmailSenderService>();
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 

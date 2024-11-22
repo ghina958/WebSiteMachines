@@ -4,7 +4,7 @@ namespace WebSiteMachines.Interfaces
 {
     public interface IPhotoService
     {
-        Task<ImageUploadResult> AddPhotoAsync(IFormFile file);
+        Task<ImageUploadResult> AddPhotoAsync(Microsoft.AspNetCore.Http.IFormFile file);
         Task<DeletionResult> DeletePhotoAsync(String publicUrl);
     }
 }

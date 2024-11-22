@@ -19,19 +19,9 @@ namespace WebSiteMachines.Controllers
 		}
 		public async Task<IActionResult> Index()
         {
-			//var contactUs = await _contactInfoService.GetContactInfo();
-			//if (contactUs == null)
-			//{
-			//	return NotFound("Contact information was not found.");
-			//}
 
-			//var model = new ContactInfoViewModel
-			//{
-			//	Name=
-			//	Email = contactUs.Email,
-
-			//};
-			return View();
+			var model = new ContactInfoViewModel();
+			return View(model);
 		}
 		[HttpPost]
 		public async Task<IActionResult> Index(ContactInfoViewModel model)

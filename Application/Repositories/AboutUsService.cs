@@ -1,11 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebSiteMachines.Data;
-using WebSiteMachines.Interfaces;
 using WebSiteMachines.Models;
 
 namespace WebSiteMachines.Repositories
 {
-	public class AboutUsService : IAboutUsService
+	public class AboutUsService : Interfaces.IAboutUsService
 	{
 		private readonly ApplicationDbContext _context;
 		public AboutUsService(ApplicationDbContext context)

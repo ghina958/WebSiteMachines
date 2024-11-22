@@ -55,5 +55,6 @@ namespace WebSiteMachines.Repositories
             _context.Category.Update(category);
             return Save();
         }
-    }
+
+	}
 }

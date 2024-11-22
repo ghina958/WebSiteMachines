@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebSiteMachines.Interfaces;
-using WebSiteMachines.ViewModels.DashBoard;
 
 namespace WebSiteMachines.Controllers
 {

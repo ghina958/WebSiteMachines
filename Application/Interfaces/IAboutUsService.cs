@@ -1,5 +1,4 @@
 ﻿using WebSiteMachines.Models;
-using WebSiteMachines.ViewModels.Category;
 
 namespace WebSiteMachines.Interfaces
 {

@@ -1,0 +1,18 @@
+﻿@using WebSiteMachines.ViewModels.Category
+@model CategoryUpsertViewModel
+
+@{
+    ViewData["Title"] = "CreateCategor";
+    Layout = "_AdminLayout";
+}
+<form method="post" asp-action="Edit" enctype="multipart/form-data">
+    <input type="hidden" id="Id" name="Id" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="Name">Title</label>
+        <input asp-for="Name" class="form-control" placeholder="Name Of Category">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
