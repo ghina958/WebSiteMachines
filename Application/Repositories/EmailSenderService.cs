@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using Microsoft.Extensions.Configuration;
+using System.Net;
 using System.Net.Mail;
 using WebSiteMachines.Interfaces;
 
@@ -8,7 +9,7 @@ namespace WebSiteMachines.Repositories
 	{
 		private readonly IConfiguration _configuration;
 
-		public EmailSenderService(Castle.Core.Configuration.IConfiguration configuration)
+		public EmailSenderService(IConfiguration configuration)
 		{
 			_configuration = configuration;
 		}
@@ -22,12 +23,12 @@ namespace WebSiteMachines.Repositories
 
 			using (var smtpClient = new SmtpClient(smtpServer, smtpPort))
 			{
-				smtpClient.Credentials = new NetworkCredential(username, password);
+				smtpClient.Credentials = new NetworkCredential(senderEmail, senderPassword);
 				smtpClient.EnableSsl = true;
 
 				var mailMessage = new MailMessage
 				{
-					From = new MailAddress(username),
+					From = new MailAddress(senderEmail),
 					Subject = subject,
 					Body = message,
 					IsBodyHtml = true

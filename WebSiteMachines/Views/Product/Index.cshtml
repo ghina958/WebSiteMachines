@@ -26,14 +26,14 @@
                     <div class="row">
 
                         <div class="form-group col-6">
-                            <label asp-for="productSearchViewModel.Name">Name</label>
-                            <input asp-for="productSearchViewModel.Name" class="form-control" placeholder="Name Of Product">
-                            <span asp-validation-for="productSearchViewModel.Name" class="text-danger"></span>
+                            <label asp-for="Name">Name</label>
+                            <input asp-for="Name" class="form-control" placeholder="Name Of Product">
+                            <span asp-validation-for="Name" class="text-danger"></span>
                         </div>
 
                         <div class="form-group col-6">
-                            <label asp-for="productSearchViewModel.CategoryId">Category Name</label>
-                            <select asp-for="productSearchViewModel.CategoryId" class="form-control" asp-items="@Model.productSearchViewModel.AvailableCategories">
+                            <label asp-for="CategoryId">Category Name</label>
+                            <select asp-for="CategoryId" class="form-control" asp-items="Model.AvailableCategories">
                                 <option selected>---all---</option>
 
                             </select>

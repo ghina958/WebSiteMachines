@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using WebSiteMachines.Models;
+using WebSiteMachines.ViewModels.Login;
 
 namespace WebSiteMachines.Controllers
 {
@@ -7,15 +9,13 @@ namespace WebSiteMachines.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly ApplicationDbContext _context;
+        //private readonly ApplicationDbContext _context;
 
         #region Ctor
         public AuthController(UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager,
-            ApplicationDbContext context)
+            SignInManager<ApplicationUser> signInManager)
 
         {
-            _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
         }

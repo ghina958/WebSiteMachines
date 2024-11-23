@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using WebSiteMachines.FiltersModel;
 using WebSiteMachines.Interfaces;
 using WebSiteMachines.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using WebSiteMachines.ViewModels.Product;
 
 namespace WebSiteMachines.Controllers
@@ -17,20 +18,21 @@ namespace WebSiteMachines.Controllers
             _categoryService = categoryService;
             _photoService = photoService;
         }
+
+
         public async Task<IActionResult> Index()
         {
-            var allProduct = await _productService.GetAll();
-            ViewBag.BreadCrumbFirstItem = "Products List";
-            ViewBag.BreadCrumbFirstItemLink = "/product";
-
+            var allProduct = await _productService.GetAll(new ProductFilter());
             var model = new ProductViewModel()
             {
                 products = allProduct
             };
-            var categories = await _categoryService.GetAllCategories();
+            //var filter = new ProductFilter();
+            var categories = await _categoryService.GetAllCategories(new CategoryFilter());
+
             foreach (var item in categories)
             {
-                model.productSearchViewModel!.AvailableCategories.Add(
+                model.AvailableCategories.Add(
                     new SelectListItem
                     {
                         Text = item.Name,
@@ -42,18 +44,18 @@ namespace WebSiteMachines.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(ProductSearchViewModel productSearchViewModel)
+        public async Task<IActionResult> Index(ProductFilter filter)
         {
-            var allProduct = await _productService.GetAll(productSearchViewModel);
+            var allProduct = await _productService.GetAll(filter);
             var model = new ProductViewModel()
             {
                 products = allProduct
 
-            };
-            var categories = await _categoryService.GetAllCategories();
+            };   
+            var categories = await _categoryService.GetAllCategories(new CategoryFilter());
             foreach (var item in categories)
             {
-                model.productSearchViewModel!.AvailableCategories.Add(
+                model!.AvailableCategories.Add(
                     new SelectListItem
                     {
                         Text = item.Name,
@@ -68,10 +70,10 @@ namespace WebSiteMachines.Controllers
         {
             var model = new ProductUpsertViewModel();
             //ViewBag.Title = "Add" + model.Name;
-            ViewBag.BreadCrumbFirstItem = "Product List";
-            ViewBag.BreadCrumbFirstItemLink = "/product";
-            ViewBag.BreadCrumbSecondItem = "Add";
-            var categories = await _categoryService.GetAllCategories();
+            //ViewBag.BreadCrumbFirstItem = "Product List";
+            //ViewBag.BreadCrumbFirstItemLink = "/product";
+            //ViewBag.BreadCrumbSecondItem = "Add";
+            var categories = await _categoryService.GetAllCategories(new CategoryFilter());
             foreach (var item in categories)
             {
                 model.Categories.Add(

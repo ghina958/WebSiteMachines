@@ -2,7 +2,7 @@
 
 @inject ICategoryService _categoryService
 @{
-    List<Category> dropDownCategories = await _categoryService.GetAllCategories();
+    List<Category> dropDownCategories = await _categoryService.GetAllCategories(new WebSiteMachines.FiltersModel.CategoryFilter());
 }
 
 

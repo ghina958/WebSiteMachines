@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebSiteMachines.Data;
+using WebSiteMachines.FiltersModel;
 using WebSiteMachines.Interfaces;
 using WebSiteMachines.Models;
-using WebSiteMachines.ViewModels.Product;
 
 namespace WebSiteMachines.Repositories
 {
@@ -13,28 +13,28 @@ namespace WebSiteMachines.Repositories
         {
             _context = context;
         }
-        public async Task<List<Product>> GetAll(ProductSearchViewModel? productSearchViewModel = null)
+        public async Task<List<Product>> GetAll(ProductFilter filter )
         {
-            if (productSearchViewModel == null)
+            if (filter == null)
             {
                 return await _context.Product.Include(c => c.Category).ToListAsync();
             }
 
             var result = _context.Product.Include(c => c.Category).AsQueryable();
 
-            if (!string.IsNullOrEmpty(productSearchViewModel.Name))
+            if (!string.IsNullOrEmpty(filter.Name))
             {
-                result = result.Where(x => x.Name == productSearchViewModel.Name);
+                result = result.Where(x => x.Name == filter.Name);
             }
 
-            if (!string.IsNullOrEmpty(productSearchViewModel.Description))
+            if (!string.IsNullOrEmpty(filter.Description))
             {
-                result = result.Where(x => x.Description == productSearchViewModel.Description);
+                result = result.Where(x => x.Description == filter.Description);
             }
 
-            if (productSearchViewModel.CategoryId != 0)
+            if (filter.CategoryId != 0)
             {
-                result = result.Where(x => x.CategoryId == productSearchViewModel.CategoryId);
+                result = result.Where(x => x.CategoryId == filter.CategoryId);
             }
 
             return await result.ToListAsync();

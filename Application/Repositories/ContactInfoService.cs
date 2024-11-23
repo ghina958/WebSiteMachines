@@ -16,7 +16,11 @@ namespace WebSiteMachines.Repositories
 		{
 			return await _context.ContactInfo.FirstOrDefaultAsync();
 		}
-		public bool Update(ContactInfo contactInfo)
+        //public Task<ContactInfo> GetById()
+        //{
+        //    throw new NotImplementedException();
+        //}
+        public bool Update(ContactInfo contactInfo)
 		{
 			_context.ContactInfo.Update(contactInfo);
 			return Save();
@@ -27,5 +31,6 @@ namespace WebSiteMachines.Repositories
 			return saved > 0 ? true : false;
 		}
 
-	}
+       
+    }
 }

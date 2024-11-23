@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebSiteMachines.FiltersModel;
 using WebSiteMachines.Interfaces;
 using WebSiteMachines.Models;
 using WebSiteMachines.ViewModels.Category;
 using WebSiteMachines.ViewModels.Product;
+
 
 namespace WebSiteMachines.Controllers
 {
@@ -21,7 +23,7 @@ namespace WebSiteMachines.Controllers
 
 		public async Task<IActionResult> DropdownSolution()
         {
-            var all = await _categoryService.GetAllCategories();
+            var all = await _categoryService.GetAllCategories(new CategoryFilter ());
 			
 			var model = new CategoryViewModel()
             {
@@ -37,7 +39,7 @@ namespace WebSiteMachines.Controllers
 			{
 				return NotFound("Invalid category ID.");
 			}
-			var allProduct = await _productService.GetAll(new ProductSearchViewModel { CategoryId = id });
+			var allProduct = await _productService.GetAll(new ProductFilter { CategoryId = id });
 			var model = new ProductViewModel()
 			{
 				products = allProduct
@@ -51,7 +53,7 @@ namespace WebSiteMachines.Controllers
 
 		public async Task<IActionResult> Index()
         {
-            var allcategory = await _categoryService.GetAllCategories();
+            var allcategory = await _categoryService.GetAllCategories(new CategoryFilter());
             ViewBag.BreadCrumbFirstItem = "Category List";
             ViewBag.BreadCrumbFirstItemLink = "/category";
             var model = new CategoryViewModel()
@@ -64,9 +66,9 @@ namespace WebSiteMachines.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Index(CategorySearchViewModel categorySearchViewModel)
+        public async Task<IActionResult> Index(CategoryFilter filter)
         {
-            var allcategory = await _categoryService.GetAllCategories(categorySearchViewModel);
+            var allcategory = await _categoryService.GetAllCategories(filter);
             var model = new CategoryViewModel()
             {
                 Categories = allcategory

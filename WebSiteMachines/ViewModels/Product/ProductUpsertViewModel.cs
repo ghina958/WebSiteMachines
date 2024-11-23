@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using System.Web.Mvc;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace WebSiteMachines.ViewModels.Product
 {

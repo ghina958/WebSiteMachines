@@ -7,18 +7,27 @@ namespace WebSiteMachines.Models
         [Key]
         public int Id { get; set; }
       
-        [MaxLength(100)]
-		public string FullName { get; set; }
+  //      [MaxLength(100)]
+		//public string FullName { get; set; }
 
-		[EmailAddress] 
-        [MaxLength(100)]
-		public string Email { get; set; }
+		//[EmailAddress] 
+		//public string Email { get; set; }
+
+		//[MaxLength(300)]
+		//public string Message { get; set; }
 
 		[MaxLength(300)]
-		public string Message { get; set; }
+		public string Address { get; set; }
 
+		[EmailAddress]
+		public string MailUs { get; set; }
 
+		[DataType(DataType.PhoneNumber)]
+		[MaxLength(15)]
+		public string Phone1 { get; set; }
 
-
+		[DataType(DataType.PhoneNumber)]
+		[MaxLength(15)]
+		public string? Phone2 { get; set; }	
 	}
 }

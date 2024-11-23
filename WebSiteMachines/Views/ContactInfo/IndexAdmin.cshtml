@@ -1,0 +1,49 @@
+﻿@using WebSiteMachines.ViewModels.ContactInfo
+@model ContactInfoViewModel
+
+@{
+    ViewData["Title"] = "ContactInfoManage";
+    Layout = "_AdminLayout";
+}
+<section class="content">
+    <div class="card">
+        <div class="card-body row">
+            <div class="col-5 text-center d-flex align-items-center justify-content-center">
+                <div class="">
+                    <!-- Add any static content or logo here -->
+                </div>
+            </div>
+            <div class="col-5">
+                <form asp-action="IndexAdmin" asp-controller="ContactInfo" method="post" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label asp-for="MailUs ">Mail Us</label>
+                        <input asp-for="MailUs" class="form-control" placeholder="Mail Us" />
+                        <span asp-validation-for="MailUs" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Address">Address</label>
+                        <textarea asp-for="Address" class="form-control" rows="4" placeholder="Address"></textarea>
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Phone1 ">Phone 1</label>
+                        <input asp-for="Phone1" class="form-control" placeholder="Phone" />
+                        <span asp-validation-for="Phone1" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Phone2 ">Phone 2</label>
+                        <input asp-for="Phone2" class="form-control" placeholder="Phone" />
+                        <span asp-validation-for="Phone2" class="text-danger"></span>
+                    </div>
+                   
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" value="Update About Us" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,11 +1,12 @@
-﻿using WebSiteMachines.Models;
-using WebSiteMachines.ViewModels.Product;
+﻿using WebSiteMachines.FiltersModel;
+using WebSiteMachines.Models;
+
 
 namespace WebSiteMachines.Interfaces
 {
 	public interface IProductService
 	{
-		Task<List<Product>> GetAll(ProductSearchViewModel? productSearchViewModel = null);
+		Task<List<Product>> GetAll(ProductFilter filter);
 		Task<Product?> GetProductByIdAsync(int id);
 		Task<Product?> GetByIdAsyncNoTracking(int id);
 		bool Add(Product product);

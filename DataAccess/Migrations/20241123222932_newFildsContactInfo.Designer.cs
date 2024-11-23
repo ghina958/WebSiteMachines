@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebSiteMachines.Data;
 
@@ -11,9 +12,11 @@ using WebSiteMachines.Data;
 namespace WebSiteMachines.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241123222932_newFildsContactInfo")]
+    partial class newFildsContactInfo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -261,17 +264,17 @@ namespace WebSiteMachines.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6781e643-f1dc-4a14-922c-ff08bdcff7c3",
+                            ConcurrencyStamp = "2aabc02f-059f-4451-8baa-9165416c0b00",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "sara",
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "SARA123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEpPIcGX6VK5yVR/g8PHXOh8EDjtT0QKMxhTY6MaioFoc5bzfPMRcQuQw6Aqdzch0Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMjFPq/1Xly6Y+ZTIq03LwsQvKTYPCMV6Uhh00fIekfUt4etp/NoZoHcoYLgcm6mCw==",
                             PhoneNumber = "+905050367177",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "69f8631d-fc03-4eff-a04e-22fc02040e85",
+                            SecurityStamp = "3798844c-343d-46f1-8bfe-bd2b75c08ed7",
                             TwoFactorEnabled = false,
                             UserName = "sara123"
                         },
@@ -279,17 +282,17 @@ namespace WebSiteMachines.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2ee5aebb-4dc0-4eae-9337-fb3e02be8c66",
+                            ConcurrencyStamp = "052fafe2-d6bd-44ae-ba1a-323aa7d7faac",
                             Email = "ahmet@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "ahmet",
                             LockoutEnabled = false,
                             NormalizedEmail = "AHMET@GMAIL.COM",
                             NormalizedUserName = "AHMET2000",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFjaclpKDIMsJN1c3P2b5iXnTc889zV16Wx+C+/cNJmr29w7jKG5sg+xmfs7ClKGLQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEC1poqrcG4JKRwzRbbFEG1BQczTlRCOzeySGk/qr5NqobhssUoJH5r16+tR/F2u2AA==",
                             PhoneNumber = "+905050364355",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "f017e704-532d-4ad1-ba55-f4cbbb13cf25",
+                            SecurityStamp = "c7ada6c6-891f-4931-942b-a54f0de93550",
                             TwoFactorEnabled = false,
                             UserName = "ahmet2000"
                         });
@@ -326,9 +329,23 @@ namespace WebSiteMachines.Migrations
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<string>("MailUs")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
 
                     b.Property<string>("Phone1")
                         .IsRequired()

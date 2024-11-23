@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebSiteMachines.Data;
+using WebSiteMachines.FiltersModel;
 using WebSiteMachines.Interfaces;
 using WebSiteMachines.Models;
-using WebSiteMachines.ViewModels.Category;
 
 namespace WebSiteMachines.Repositories
 {
@@ -13,17 +13,17 @@ namespace WebSiteMachines.Repositories
         {
             _context = context;
         }
-        public async Task<List<Category>> GetAllCategories(CategorySearchViewModel? categorySearchViewModel = null)
+        public async Task<List<Category>> GetAllCategories(CategoryFilter filter)
         {
-            if (categorySearchViewModel == null)
+            if (filter == null)
             {
                 return await _context.Category.ToListAsync();
             }
             var result = _context.Category.AsQueryable();
 
-            if (!string.IsNullOrEmpty(categorySearchViewModel.Name))
+            if (!string.IsNullOrEmpty(filter.Name))
             {
-                result = result.Where(x => x.Name == categorySearchViewModel.Name);
+                result = result.Where(x => x.Name == filter.Name);
             }
 
             return await result.ToListAsync();
