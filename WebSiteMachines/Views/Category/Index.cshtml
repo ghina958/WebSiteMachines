@@ -2,7 +2,8 @@
 @model CategoryViewModel;
 
 @{
-    ViewData["Title"] = "CategorList";
+    ViewData["Title"] = "Category";
+    ViewData["ActiveSidebar"] = "liCategory";
     Layout = "_AdminLayout";
 }
 <div class="row">
@@ -48,15 +49,21 @@
                 <table class="table table-head-fixed text-nowrap">
                     <thead>
                         <tr>
+                            <th>Image</th>
                             <th>Name</th>
-                                <th>Options</th>
+                            <th data-visible="false">Description</th>
+                             <th>Options</th>
                         </tr>
                     </thead>
                     @foreach (var item in Model.Categories)
                     {
                         <tbody>
                             <tr>
+                                <td>
+                                    <img src="@item.CategoryImage" class="img-circle img-size-50 mr-5">
+                                </td>
                                 <td>@item.Name</td>
+                                <td>@item.Description</td>
                                 <td>
                                         <a class="btn btn-success btn-sm" asp-controller="Category" asp-action="Edit" asp-route-id="@item.Id">
                                             <i class='fas fa-edit'></i>

@@ -17,13 +17,13 @@ namespace WebSiteMachines.Controllers
         public async Task<IActionResult> Index()
         {
             var countOfAllCategories = await _dashboardAdminService.GetCategoriesCount();
-            var countOfAllUsers = await _dashboardAdminService.GetUsersCount();
             var countOfAllProducts = await _dashboardAdminService.GetProductCount();
+            var countOfContactUs = await _dashboardAdminService.GetContactCount();
 
             var CountVM = new DashBoardViewModel()
             {
                 CategoriesAmount = countOfAllCategories,
-                UsersAmount = countOfAllUsers,
+                ContactsAmount = countOfContactUs,
                 ProductsAmount = countOfAllProducts,
             };
             return View(CountVM);

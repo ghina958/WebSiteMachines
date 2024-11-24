@@ -22,9 +22,9 @@ namespace WebSiteMachines.Repositories
 
 			return count;
 		}
-		public async Task<int> GetUsersCount()
+		public async Task<int> GetContactCount()
 		{
-			var count = _context.Users.Count();
+			var count = _context.ContactInfo.Count();
 
 			return count;
 		}

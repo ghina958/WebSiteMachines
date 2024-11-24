@@ -92,7 +92,7 @@ namespace WebSiteMachines.Controllers
         {
             if (ModelState.IsValid)
             {
-                string imageUrl = null; // Declare a variable to hold the image URL
+                string imageUrl = null; 
 
                 // Check if there is an image to upload
                 if (productVM.Image != null)
@@ -128,79 +128,81 @@ namespace WebSiteMachines.Controllers
             return View(productVM);
         }
 
-        //public async Task<IActionResult> Edit(int id)
-        //{
-        //    var product = await _productService.GetProductByIdAsync(id);
-        //    if (product == null) return View("Error");
+        public async Task<IActionResult> Edit(int id)
+        {
+            Product? product = await _productService.GetProductByIdAsync(id);
+            if (product == null) return NotFound();
 
-        //    ViewBag.Title = "Edit " + product.Name;
-        //    ViewBag.BreadCrumbFirstItem = "Products List";
-        //    ViewBag.BreadCrumbFirstItemLink = "/product";
-        //    ViewBag.BreadCrumbSecondItem = "Edit";
+            //ViewBag.Title = "Edit " + product.Name;
+            //ViewBag.BreadCrumbFirstItem = "Products List";
+            //ViewBag.BreadCrumbFirstItemLink = "/product";
+            //ViewBag.BreadCrumbSecondItem = "Edit";
+            var categories = await _categoryService.GetAllCategories(new CategoryFilter() );
+            var VM = new ProductUpsertViewModel
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Description = product.Description,
+                CurrentImageUrl = product.ProductImage,
+                CategoryId = product.CategoryId,
+                Categories = categories.Select(c => new SelectListItem
+                {
+                    Value = c.Id.ToString(),
+                    Text = c.Name
 
-        //    var VM = new ProductUpsertViewModel
-        //    {
-        //        Id = product.Id,
-        //        Name = product.Name,
-        //        Description = product.Description,
-        //        CurrentImageUrl = product.Image,
-        //        CategoryId = product.CategoryId,
+                }).ToList()
 
-        //    };
-        //    var categories = await _categoryService.GetAllCategories();
-        //    foreach (var item in categories)
-        //    {
-        //        VM.Categories.Add(
-        //            new SelectListItem
-        //            {
-        //                Text = item.Name,
-        //                Value = item.Id.ToString()
-        //            }
-        //            );
-        //    }
-        //    return View(VM);
-        //}
+            };
+           
+            return View(VM);
+        }
 
-        //[HttpPost]
-        //public async Task<IActionResult> Edit(int id, ProductUpsertViewModel VM)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, ProductUpsertViewModel VM)
+        {
+            if (ModelState.IsValid)
+            {
                
-        //        string imageUrl = VM.CurrentImageUrl;
+                var existingProduct = await _productService.GetProductByIdAsync(id);
+                if (existingProduct == null)
+                {
+                    return NotFound();
+                }
 
-        //        if (VM.Image != null)
-        //        {
-        //            var result = await _photoService.AddPhotoAsync(VM.Image); // Upload the new image
-        //            imageUrl = result.Url.ToString();
+                string imageUrl = existingProduct.ProductImage;
 
-        //        }
-        //        var ProductEdit = await _productService.GetProductByIdAsync(id);
-        //        if (ProductEdit != null)
-        //        {
-        //            ProductEdit.Name = VM.Name;
-        //            ProductEdit.Description = VM.Description;
-        //            ProductEdit.Image = imageUrl;// Update the image URL (either new or existing)
-        //            ProductEdit.CategoryId = VM.CategoryId;
+                if (VM.Image != null)
+                {
+                    var result = await _photoService.AddPhotoAsync(VM.Image); // Upload the new image
+                    if (result != null && result.Url != null)
+                    {
+                        imageUrl = result.Url.ToString();
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Photo upload failed");
+                        return View(VM);
+                    }
 
-        //            _productService.Update(ProductEdit);
+                }
+                else
+                {
+                    imageUrl = existingProduct.ProductImage; // Keep the old image if no new image is uploaded
+                }
+                existingProduct.Name = VM.Name;
+                existingProduct.Description = VM.Description;
+                existingProduct.ProductImage = imageUrl;
+                existingProduct.CategoryId = VM.CategoryId;
 
-        //            // Redirect to the product index or wherever you need after successful update
-        //            return RedirectToAction("Index");
-        //        }
+                _productService.Update(existingProduct);
 
-        //    }
-        //    var categories = await _categoryService.GetAllCategories();
-        //    VM.Categories = categories.Select(item => new SelectListItem
-        //    {
-        //        Text = item.Name,
-        //        Value = item.Id.ToString(),
-        //        Selected = item.Id == VM.CategoryId // Select the correct category
-        //    }).ToList();
+                return RedirectToAction("Index");
 
-        //    return View(VM);
-        //}
-            
+            }
+            ModelState.AddModelError("", "Invalid data provided");
+            return View(VM);
+        }
+
 
 
     }

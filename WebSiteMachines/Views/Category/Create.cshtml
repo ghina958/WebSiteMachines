@@ -2,17 +2,27 @@
 @model CategoryUpsertViewModel
 
 @{
-    ViewData["Title"] = "CreateCategor";
+    ViewData["Title"] = "CreateCategory";
     Layout = "_AdminLayout";
 }
 <form method="post" asp-action="Create" enctype="multipart/form-data">
-    @* <input type="hidden" id="AppUser" name="AppUser" asp-for="AppUserId" />*@ @*will supply values that are returned from the server*@
-
+   
     <div class="form-group">
         <label asp-for="Name">Title</label>
         <input asp-for="Name" class="form-control" placeholder="Name Of Category">
         <span asp-validation-for="Name" class="text-danger"></span>
     </div>
+    <div class="form-group">
+        <label asp-for="Description">Description</label>
+        <input asp-for="Description" class="form-control" placeholder="Enter Descriptionl">
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Image">Image</label>
+        <input asp-for="Image" type="file" class="form-control" placeholder="Image">
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

@@ -60,7 +60,7 @@
                 <!-- Admin Photo in SidNavBar -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="pull-left logo-outer">
-                        <div class="logo"><a href="index.html"><img src="~/images/logo/logo.png" alt="" title="Beirut Finance"></a></div>
+                        <div class="logo"><a href="index.html"><img src="~/images/logo/logo.png"></a></div>
                     </div>
                 </div>
 
@@ -69,7 +69,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                        
                         <li class="nav-item menu-open">
-                            <a href="/DashboardAdmin/Index" class="nav-link">
+                            <a href="/DashboardAdmin/Index" class="nav-link text-white  @(ViewData["ActiveSidebar"]?.ToString() == "liDashBoard" ? "alert-primary" : "")">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -78,7 +78,7 @@
                         </li>
                        
                         <li class="nav-item">
-                            <a class="nav-link" href="/Category/Index">
+                            <a href="/Category/Index" class="nav-link @(ViewData["ActiveSidebar"]?.ToString() == "liCategory" ? "alert-primary" : "")">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Categories
@@ -87,7 +87,7 @@
                         </li>
                       
                         <li class="nav-item">
-                            <a class="nav-link" href="/Product/Index">
+                            <a href="/Product/Index" class="nav-link @(ViewData["ActiveSidebar"]?.ToString() == "liProduct" ? "alert-primary" : "")">
                                 <i class='nav-icon  fas fa-shopping-bag' style='font-size:18px'></i>
                                 <p>
                                     Products
@@ -95,17 +95,8 @@
                             </a>
                         </li>
 
-                        <li class="nav-item menu-open">
-                            <a href="/Service/Index" class="nav-link ">
-                                <i class='nav-icon  fas fa-shopping-bag' style='font-size:18px'></i>
-                                <p>
-                                    Services
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item menu-open">
-                            <a href="/ContactInfo/IndexAdmin" class="nav-link ">
+                        <li class="nav-item">
+                            <a href="/ContactInfo/IndexAdmin" class="nav-link @(ViewData["ActiveSidebar"]?.ToString() == "liContactInfo" ? "alert-primary" : "") ">
                                 <i class='nav-icon  fas fa-shopping-bag' style='font-size:18px'></i>
                                 <p>
                                     Contact Info
@@ -113,8 +104,8 @@
                             </a>
                         </li>
 
-                        <li class="nav-item menu-open">
-                            <a href="/AboutUs/Index" class="nav-link ">
+                        <li class="nav-item">
+                            <a href="/AboutUs/Index" class="nav-link @(ViewData["ActiveSidebar"]?.ToString() == "liAboutUs" ? "alert-primary" : "")  ">
                                 <i class='nav-icon  fas fa-shopping-bag' style='font-size:18px'></i>
                                 <p>
                                     About Us
@@ -122,6 +113,17 @@
                             </a>
                         </li>
 
+
+                     @*    <li class="nav-item menu-open">
+                            <a href="/Service/Index" class="nav-link ">
+                                <i class='nav-icon  fas fa-shopping-bag' style='font-size:18px'></i>
+                                <p>
+                                    Services
+                                </p>
+                            </a>
+                        </li> *@
+
+                        
                     </ul>
                 </nav>
             </div>

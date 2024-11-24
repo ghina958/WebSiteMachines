@@ -4,6 +4,6 @@
 	{
 		Task<int> GetProductCount();
 		Task<int> GetCategoriesCount();
-		Task<int> GetUsersCount();
+		Task<int> GetContactCount();
 	}
 }
