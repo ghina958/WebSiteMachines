@@ -15,12 +15,12 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.10" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\images\AboutUs\" />
-  </ItemGroup>
-
 	<ItemGroup>
 		<ProjectReference Include="..\Application\2-Application.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="wwwroot\images\AboutUs\" />
 	</ItemGroup>
 
 </Project>
