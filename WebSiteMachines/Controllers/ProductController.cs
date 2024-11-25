@@ -163,7 +163,7 @@ namespace WebSiteMachines.Controllers
             if (ModelState.IsValid)
             {
                
-                var existingProduct = await _productService.GetProductByIdAsync(id);
+                var existingProduct = await _productService.GetByIdAsyncNoTracking(id);
                 if (existingProduct == null)
                 {
                     return NotFound();
