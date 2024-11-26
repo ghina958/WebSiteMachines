@@ -1,21 +1,32 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using WebSiteMachines.FiltersModel;
+using WebSiteMachines.Interfaces;
 using WebSiteMachines.Models;
+using WebSiteMachines.ViewModels.Category;
 
 namespace WebSiteMachines.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ICategoryService _categoryService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ICategoryService categoryService)
         {
             _logger = logger;
+            _categoryService = categoryService;
         }
 
-        public IActionResult Home()
+        public async Task<IActionResult> Home()
         {
-            return View();
+            var allcategory = await _categoryService.GetAllCategories(new CategoryFilter());
+            var model = new CategoryViewModel()
+            {
+                Categories = allcategory
+            };
+            return View(model);
+
         }
 
 

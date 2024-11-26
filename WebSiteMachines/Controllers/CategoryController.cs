@@ -113,6 +113,8 @@ namespace WebSiteMachines.Controllers
                 var category = new Category
                 {
                     Name = Vm.Name,
+                    Description= Vm.Description,
+                    CategoryImage=Vm.CurrentImageUrl
 
                 };
                 _categoryService.Add(category);

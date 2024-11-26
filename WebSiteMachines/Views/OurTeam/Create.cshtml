@@ -1,0 +1,28 @@
+﻿@using Web.ViewModels.OurTeam
+@model OurTeamUpsertViewModel
+
+@{
+    ViewData["Title"] = "Create Our Team";
+    Layout = "_AdminLayout";
+}
+<form method="post" asp-action="Create" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" class="form-control" placeholder="Name Of Category">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="position">position</label>
+        <input asp-for="position" class="form-control" placeholder="Enter position">
+        <span asp-validation-for="position" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="FileImage">Image</label>
+        <input asp-for="FileImage" type="file" class="form-control" placeholder="Image">
+        <span asp-validation-for="FileImage" class="text-danger"></span>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

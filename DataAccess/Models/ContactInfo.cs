@@ -28,6 +28,9 @@ namespace WebSiteMachines.Models
 
 		[DataType(DataType.PhoneNumber)]
 		[MaxLength(15)]
-		public string? Phone2 { get; set; }	
-	}
+		public string? Phone2 { get; set; }
+
+        [MaxLength(255)]
+        public string SliderImage { get; set; }
+    }
 }

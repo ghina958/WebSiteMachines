@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using WebSiteMachines.Interfaces;
-using WebSiteMachines.Repositories;
 using WebSiteMachines.ViewModels.AboutUs;
-using WebSiteMachines.ViewModels.Category;
 
 namespace WebSiteMachines.Controllers
 {
@@ -34,7 +31,6 @@ namespace WebSiteMachines.Controllers
                 Title = aboutUs.Title,
                 Description = aboutUs.Description,
                 MainImagePath = aboutUs.ImagePath,
-                AdditionalImagePaths = aboutUs.AdditionalImagePaths?.ToList()
             };
 
             return View(model);
@@ -94,7 +90,6 @@ namespace WebSiteMachines.Controllers
 				Title = aboutUs.Title,
 				Description = aboutUs.Description,
 				MainImagePath = aboutUs.ImagePath,
-				AdditionalImagePaths = aboutUs.AdditionalImagePaths?.ToList()
 			};
 
 			return View(model);

@@ -16,25 +16,14 @@
 	 <header class="main-header">
 		<div class="header-top">
 			<div class="container">
-				<!--Top Left-->
-				<div class="top-left pull-left">
-					<ul class="links-nav clearfix">
-						<li><a href="#">Welcome to Leading Provider Of Industrial Solutions</a></li>
-					</ul>
-				</div>
-
-				<!--Top Right-->
 				<div class="top-right pull-right">
 					<ul class="links-nav clearfix">
-						<li><a href="#">Leadership</a></li>
-						<li><a href="#">Industry News</a></li>
-						<li><a href="#">Contact Us</a></li> 
 						<li><a href="/DashboardAdmin/Index">Admin</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
-		@* <div class="header-upper">
+		<div class="header-upper">
 			<div class="container">
 				<div class="clearfix">
 
@@ -65,7 +54,7 @@
 					</div>
 				</div>
 			</div>
-		</div> *@
+		</div>
 	</header>
 
 	<section class="mainmenu-wrapper stricky">
@@ -74,24 +63,14 @@
 				<div class="nav-header">
 					<ul class="navigation">
 						<li><a href="/Home/Home" class="logo"><img src="~/images/logo/logo.png"/></a></li>
+
 						<li><a href="/AboutUs/IndexHome">About Us</a></li>
-						
-						@* <li class="dropdown">
-							<a href="sol ution.html">Solutions</a>
-							<ul class="submenu">
-								<li><a href="agricultural-engineering.html">Agricultural Engineering</a></li>
-								<li><a href="chemical.html">Chemical Research Engineering</a></li>
-								<li><a href="material.html">Material Science and Engineering</a></li>
-								<li><a href="mechanical.html">Mechanical Engineering</a></li>
-								<li><a href="petrolium.html">Petroleum and Gas</a></li>
-								<li><a href="power.html">Power and Energy</a></li>
-							</ul>
-						</li> *@
+					
 						<li class="dropdown">
 							<partial name="_SelectListNav" />
 						</li>
 						
-						<li><a href="projects.html">Testimonial</a></li>
+						@* <li><a href="projects.html">Testimonial</a></li> *@
 						<li><a href="/ContactInfo/Index">Contact Us</a></li>
 					</ul>
 				</div>
@@ -110,183 +89,59 @@
             @RenderBody()
         </main>
     </div>
+
 	 <partial name="_Footer" />
-	@* <footer class="footer has-black-color-overlay has-dark-texture">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-3">
-					<div class="footer-widget about-widget">
-						<a href="index.html"><img src="images/logo/logo2.png" alt="" /></a>
-						<p>Industries multidisciplinary team of engineering experts can successfully carry out projects of any size and complexity.  Our team offers the most up-to-date, sustainable and trusted suppliers of quality control. </p>
-						<ul class="list-inline social">
-							<li>
-								<a href="#"><i class="fa fa-facebook"></i></a>
-							</li>
-							<!-- comment for inline hack
-							-->
-							<li>
-								<a href="#"><i class="fa fa-twitter"></i></a>
-							</li>
-							<!-- comment for inline hack
-							-->
-							<li>
-								<a href="#"><i class="fa fa-skype"></i></a>
-							</li>
-							<!-- comment for inline hack
-							-->
-							<li>
-								<a href="#"><i class="fa fa-linkedin"></i></a>
-							</li>
-						</ul>
-					</div><!-- /.footer-widget about-widget -->
-				</div><!-- /.col-md-3 -->
-				<div class="col-md-3">
-					<div class="footer-widget link-widget">
-						<div class="inner-title">
-							<h3><span class="white-color-text">Our Solution</span></h3>
-							<span class="decor-line"></span>
-						</div><!-- /.sec-title-two -->
-						<ul class="links">
-							<li><a href="#">Agricultural Engineering</a></li>
-							<li><a href="#">Chemical Research Engineering</a></li>
-							<li><a href="#">Material Science and Engineering</a></li>
-							<li><a href="#">Mechanical Engineering</a></li>
-							<li><a href="#">Petroleum and Gas</a></li>
-							<li><a href="#">Power and Energy</a></li>
-						</ul><!-- /.links -->
-					</div><!-- /.footer-widget link-widget -->
-				</div><!-- /.col-md-3 -->
-
-				<div class="col-md-3">
-					<div class="footer-widget contact-widget">
-						<div class="inner-title">
-							<h3>Contact Details</h3>
-							<span class="decor-line"></span>
-						</div><!-- /.sec-title-two -->
-						<div class="footer-contact-info-carousel">
-							<div class="item">
-								<ul class="contact-infos">
-									<li>
-										<div class="icon-box">
-											<i class="icon-geography"></i>
-										</div><!-- /.icon-box -->
-										<div class="text-box">
-											<p>200K Camden Borough, <br>London, United Kingdom.</p>
-										</div><!-- /.text-box -->
-									</li>
-									<li>
-										<div class="icon-box">
-											<i class="icon-technology-1"></i>
-										</div><!-- /.icon-box -->
-										<div class="text-box">
-											<p>+ (12) 123 - 5567890 <br>info@industries.com</p>
-										</div><!-- /.text-box -->
-									</li>
-									<li>
-										<div class="icon-box">
-											<i class="icon-telephone-with-fax"></i>
-										</div><!-- /.icon-box -->
-										<div class="text-box">
-											<p>+(321) 58 759 89790</p>
-										</div><!-- /.text-box -->
-									</li>
-									<li>
-										<div class="icon-box">
-											<i class="icon-circular-wall-clock-for-livingroom"></i>
-										</div><!-- /.icon-box -->
-										<div class="text-box">
-											<p>Mon-Fri, 9am until 6pm</p>
-										</div><!-- /.text-box -->
-									</li>
-								</ul><!-- /.contact-infos -->
-							</div><!-- /.item -->
-
-						</div><!-- /.contact-info-carousel owl-theme owl-carousel -->
-
-					</div><!-- /.footer-widget link-widget -->
-				</div><!-- /.col-md-3 -->
-				<div class="col-md-3">
-					<div class="footer-widget subscribe-widget">
-						<div class="inner-title">
-							<h3>Subscribe us</h3>
-							<span class="decor-line"></span>
-						</div><!-- /.sec-title-two -->
-						<p class="highlight">Sign up today for tips and latest news and exclusive special offers.</p>
-						<form action="inc/mailchimp/subscribe.php" class="clearfix mailchimp-form">
-							<input type="text" name="email" placeholder="Email address" />
-							<button type="submit"><i class="fa fa-envelope-o"></i></button>
-						</form>
-						<p class="highlight">We dont’t do spam and Your mail id very confidential.</p>
-					</div><!-- /.footer-widget link-widget -->
-				</div><!-- /.col-md-3 -->
-
-			</div><!-- /.row -->
-		</div><!-- /.container -->
-	</footer>
-	<section class="footer-bottom">
-		<div class="container">
-			<div class="pull-left get-text">
-				<ul>
-					<li><a href="#">Terms & Conditions</a></li>
-					<li><a href="#">Privacy Policy</a></li>
-				</ul>
-			</div><!-- /.pull-right -->
-			<div class="pull-right copy-text">
-				<p>Copyright 2016 <a href="#">ThemeKalia, All Right Reserved</a></p>
-			</div><!-- /.pull-left -->
-		</div><!-- /.container -->
-	</section> *@
-	<!--Scroll to top-->
+	
 	<div class="scroll-to-top scroll-to-target" data-target=".main-header">
 		<span class="icon flaticon-arrows"></span>
 	</div>
 
 	<!-- jQuery js -->
-	<script src="assets/jquery/jquery.js"></script>
+    <script src="~/assets/jquery/jquery.js"></script>
 	<!-- bootstrap js -->
-	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="~/assets/bootstrap/js/bootstrap.min.js"></script>
 	<!-- jQuery ui js -->
-	<script src="assets/jquery-ui-1.11.4/jquery-ui.js"></script>
+	<script src="~/assets/jquery-ui-1.11.4/jquery-ui.js"></script>
 	<!-- owl carousel js -->
-	<script src="assets/owl.carousel-2/owl.carousel.min.js"></script>
+	<script src="~/assets/owl.carousel-2/owl.carousel.min.js"></script>
 	<!-- jQuery validation -->
-	<script src="assets/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script src="~/assets/jquery-validation/dist/jquery.validate.min.js"></script>
 	<!-- gmap.js helper -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRvBPo3-t31YFk588DpMYS6EqKf-oGBSI"></script>
 	<!-- gmap.js -->
-	<script src="assets/gmap.js"></script>
+    <script src="~/assets/gmap.js"></script>
 	<!-- mixit up -->
-	<script src="assets/wow.js"></script>
-	<script src="assets/jquery.mixitup.min.js"></script>
-	<script src="assets/jquery.fitvids.js"></script>
-	<script src="assets/bootstrap-select.min.js"></script>
+	<script src="~/assets/wow.js"></script>
+	<script src="~/assets/jquery.mixitup.min.js"></script>
+	<script src="~/assets/jquery.fitvids.js"></script>
+	<script src="~/assets/bootstrap-select.min.js"></script>
 
 	<!-- revolution slider js -->
-	<script src="assets/revolution/js/jquery.themepunch.tools.min.js"></script>
-	<script src="assets/revolution/js/jquery.themepunch.revolution.min.js"></script>
-	<script src="assets/revolution/js/extensions/revolution.extension.actions.min.js"></script>
-	<script src="assets/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-	<script src="assets/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-	<script src="assets/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-	<script src="assets/revolution/js/extensions/revolution.extension.migration.min.js"></script>
-	<script src="assets/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-	<script src="assets/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-	<script src="assets/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-	<script src="assets/revolution/js/extensions/revolution.extension.video.min.js"></script>
-
+	<script src="~/assets/revolution/js/jquery.themepunch.tools.min.js"></script>
+	<script src="~/assets/revolution/js/jquery.themepunch.revolution.min.js"></script>
+	<script src="~/assets/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+	<script src="~/assets/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+	<script src="~/assets/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+	<script src="~/assets/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+	<script src="~/assets/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+	<script src="~/assets/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+	<script src="~/assets/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+	<script src="~/assets/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+	<script src="~/assets/revolution/js/extensions/revolution.extension.video.min.js"></script>
+  
 	<!-- fancy box -->
-	<script src="assets/fancyapps-fancyBox/source/jquery.fancybox.pack.js"></script>
-	<script src="assets/Polyglot-Language-Switcher-master/js/jquery.polyglot.language.switcher.js"></script>
-	<script src="assets/nouislider/nouislider.js"></script>
-	<script src="assets/bootstrap-touch-spin/jquery.bootstrap-touchspin.js"></script>
-	<script src="assets/SmoothScroll.js"></script>
+	<script src="~/assets/fancyapps-fancyBox/source/jquery.fancybox.pack.js"></script>
+	<script src="~/assets/Polyglot-Language-Switcher-master/js/jquery.polyglot.language.switcher.js"></script>
+	<script src="~/assets/nouislider/nouislider.js"></script>
+	<script src="~/assets/bootstrap-touch-spin/jquery.bootstrap-touchspin.js"></script>
+	<script src="~/assets/SmoothScroll.js"></script>
 
-	<script src="assets/jquery-appear/jquery.appear.js"></script>
-	<script src="assets/jquery.countTo.js"></script>
+	<script src="~/assets/jquery-appear/jquery.appear.js"></script>
+	<script src="~/assets/jquery.countTo.js"></script>
 
 	<!-- theme custom js  -->
-	<script id="map-script" src="js/default-map.js"></script>
-	<script src="js/custom.js"></script>
+	<script id="map-script" src="~/js/default-map.js"></script>
+    <script src="~/js/custom.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

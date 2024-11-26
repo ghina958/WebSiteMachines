@@ -31,17 +31,6 @@
                         <input asp-for="MainImage" type="file" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <label class="font-weight-bold">Additional Images</label>
-                        <input asp-for="AdditionalImages" type="file" class="form-control" multiple />
-                        @* @if (Model.AdditionalImagePaths != null && Model.AdditionalImagePaths.Any())
-                        {
-                            foreach (var imagePath in Model.AdditionalImagePaths)
-                            {
-                                <img src="@imagePath" alt="Additional Image" class="img-thumbnail mt-2" width="150" />
-                            }
-                        } *@
-                    </div>
-                    <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Update About Us" />
                     </div>
                 </form>
