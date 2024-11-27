@@ -10,6 +10,6 @@ namespace Web.ViewModels.OurTeam
 
         public string Image { get; set; }
 
-        public IFormFile FileImage { get; set; }
+        public IFormFile? FileImage { get; set; }
     }
 }

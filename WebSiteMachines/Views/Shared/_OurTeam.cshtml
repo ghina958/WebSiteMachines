@@ -1,0 +1,36 @@
+﻿@using WebSiteMachines.Interfaces
+
+@inject IOurTeamService _ourTeam
+@{
+    List<OurTeam> listMembers = await _ourTeam.GetAll();
+}
+
+<section class="our-team">
+    <div class="container">
+        <div class="section-title">
+            <div class="row">
+                <div class="col-md-4 col-sm-5 col-xs-12">
+                    <h2>Our Team</h2>
+                    <span class="decor"></span>
+                </div>
+                <div class="col-md-8 col-sm-7 col-xs-12 font-20">
+                    <p>Our multi-faceted, versatile engineering services team is made up of over 150 experts<br> that  can complement both your in-house teams and spearhead your projects at all levels.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-sm-4 col-xs-6">
+                @foreach (var item in listMembers)
+                {
+                    <div class="single-team-member">
+                        <figure class="img-box">
+                            <a href="#"><img src="@item.Image" alt="@item.Name"></a>
+                        </figure>
+                        <h4>@item.Name</h4>
+                        <a><p class="position">@item.position</p></a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

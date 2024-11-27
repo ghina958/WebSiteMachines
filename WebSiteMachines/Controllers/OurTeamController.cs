@@ -2,6 +2,7 @@
 using Web.ViewModels.OurTeam;
 using WebSiteMachines.Interfaces;
 using WebSiteMachines.Models;
+using WebSiteMachines.Repositories;
 
 namespace WebSiteMachines.Controllers
 {
@@ -58,7 +59,7 @@ namespace WebSiteMachines.Controllers
                 {
                     Name = Vm.Name,
                     position=Vm.position,
-                    Image=Vm.Image,
+                    Image= imageUrl,
 
                 };
                 _ourTeamService.Add(entity);
@@ -91,7 +92,7 @@ namespace WebSiteMachines.Controllers
         [HttpPost]
         public async Task<ActionResult> Edit(int id , OurTeamUpsertViewModel VM)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 var exitingOurTeam = await _ourTeamService.GetById(id);
                 if (exitingOurTeam == null) return NotFound();
@@ -123,6 +124,24 @@ namespace WebSiteMachines.Controllers
 
             ModelState.AddModelError("", "Invalid data provided");
             return View(VM);
+        }
+
+        public async Task<ActionResult> Delete(int id)
+        {
+            var member = await _ourTeamService.GetById(id);
+            if (member == null) return View("Error");
+
+            return View(member);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteMember(int id)
+        {
+            var member = await _ourTeamService.GetById(id);
+            if (member == null) { return View("Error"); }
+
+            _ourTeamService.Delete(member);
+            return RedirectToAction("Index");
         }
     }
 }
