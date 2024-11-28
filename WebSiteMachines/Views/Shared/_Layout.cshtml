@@ -13,8 +13,8 @@
 
 
 <body>
-
-	<header class="main-header" >
+	<partial name="_ContactInfoHeader" />
+	@* <header class="main-header" >
 		<div class="header-top">
 			<div class="container">
 				<div class="top-right pull-right">
@@ -24,41 +24,33 @@
 				</div>
 			</div>
 		</div>
-		@* <div class="header-upper">
-			<div class="container">
-				<div class="clearfix">
+		
+	</header> *@
 
-					<div class="pull-left logo-outer">
-						<div class="logo"><a href="index.html"><img src="images/logo/logo.png" alt="" title="Beirut Finance"></a></div>
+	@*  <div class="header-upper">
+		<div class="container">
+			<div class="clearfix">
+				<div class=".pull-left upper-left clearfix">
+					<!--Info Box-->
+					<div class="upper-column info-box">
+						<div class="icon-box"><span class="icon-location-pin"></span></div>
+						Address : <span class="light-text">@Info.Address</span>
 					</div>
 
-					<div class="pull-right upper-right clearfix">
+					<div class="upper-column info-box">
+						<div class="icon-box"><span class="icon-geography"></span></div>
+						Call Us : <span class="light-text">@Info.Phone1</span> <br>Mail Us : <span class="light-text">@Info.MailUs</span>
 
-						<!--Info Box-->
-						<div class="upper-column info-box">
-							<div class="icon-box"><span class="icon-location-pin"></span></div>
-							Address : <span class="light-text">Camden Borough, <br>London, United Kingdom</span>
-						</div>
+					</div>
 
-						<!--Info Box-->
-						<div class="upper-column info-box">
-							<div class="icon-box"><span class="icon-geography"></span></div>
-							Call Us : <span class="light-text">+ (12) 123 - 5567890</span> <br>Mail Us : <span class="light-text">info@industries.com</span>
-
-						</div>
-
-						<!--Info Box-->
-						<div class="upper-column info-box">
-							<div class="icon-box"><span class="icon-chronometer-outline"></span></div>
-							Office Time : <span class="light-text">Monday to <br>Sunday 08:00 - 20:00</span>
-						</div>
+					<div class="upper-column info-box">
+						<div class="icon-box"><span class="icon-chronometer-outline"></span></div>
+						<span class="light-text">@Info.Phone2</span><br>Call Us :<span class="light-text">@Info.Phone2</span>
 					</div>
 				</div>
 			</div>
-		</div> *@
-		<partial name="_ContactInfoHeader" />
-		
-	</header>
+		</div>
+	</div>  *@
 
 	<section class="mainmenu-wrapper stricky">
 		<div class="container">
@@ -66,14 +58,13 @@
 				<div class="nav-header">
 					<ul class="navigation">
 						<li><a href="/Home/Home" class="logo"><img src="~/images/logo/logo.png"/></a></li>
-
+						<li><a href="/Home/Home">Home</a></li>
 						<li><a href="/AboutUs/IndexHome">About Us</a></li>
 					
 						<li class="dropdown">
 							<partial name="_SelectListNav" />
 						</li>
 						
-						@* <li><a href="projects.html">Testimonial</a></li> *@
 						<li><a href="/ContactInfo/Index">Contact Us</a></li>
 					</ul>
 				</div>
@@ -88,7 +79,8 @@
 
 
     <div class="container">
-        <main role="main" class="pb-3">
+		@* class="pb-3" *@
+		<main role="main" class="pb-5">
             @RenderBody()
         </main>
     </div>

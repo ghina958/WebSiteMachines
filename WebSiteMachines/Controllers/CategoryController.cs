@@ -114,9 +114,9 @@ namespace WebSiteMachines.Controllers
                 {
                     Name = Vm.Name,
                     Description= Vm.Description,
-                    CategoryImage=Vm.CurrentImageUrl
+                    CategoryImage= imageUrl
 
-                };
+				};
                 _categoryService.Add(category);
                 return RedirectToAction("Index");
             }

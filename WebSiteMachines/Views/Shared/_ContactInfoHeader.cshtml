@@ -5,35 +5,19 @@
     var Info = await _Info.GetContactInfo();
 }
 
-<div class="header-upper" style="padding: 24px 6px 8px 43px;">
-	<div class="container">
-		<div class="clearfix">
-
-			<div class="pull-left logo-outer">
-				<div class="logo"><a href="index.html"><img src="images/logo/logo.png" alt="" title="Beirut Finance"></a></div>
-			</div>
-
-			<div class="pull-right upper-right clearfix" >
-
-				<!--Info Box-->
-				<div class="upper-column info-box">
-					<div class="icon-box"><span class="icon-location-pin"></span></div>
-					Address : <span class="light-text">@Info.Address</span>
-				</div>
-
-				<!--Info Box-->
-				<div class="upper-column info-box">
-					<div class="icon-box"><span class="icon-geography"></span></div>
-					Call Us : <span class="light-text">@Info.Phone1</span> <br>Mail Us : <span class="light-text">@Info.MailUs</span>
-
-				</div>
-
-				<!--Info Box-->
-				<div class="upper-column info-box">
-					<div class="icon-box"><span class="icon-chronometer-outline"></span></div>
-					Office Time : <span class="light-text">Monday to <br>Sunday 08:00 - 20:00</span>
+<header class="main-header" >
+		<div class="header-top">
+			<div class="container">
+				<div class="top-left pull-left">
+					<ul class="links-nav clearfix">
+					<li><a href="/DashboardAdmin/Index">Admin</a></li>
+					<li><a href="#">@Info.Address</a></li>
+					<li><a href="#">@Info.Phone2</a></li>
+					
+					</ul>
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
+	</header>
+
+ 

@@ -59,7 +59,7 @@ namespace WebSiteMachines.Controllers
                 {
                     Name = Vm.Name,
                     position=Vm.position,
-                    Image= imageUrl,
+                    Image= imageUrl
 
                 };
                 _ourTeamService.Add(entity);

@@ -19,9 +19,10 @@
             </div>
         </div>
         <div class="row">
+            @foreach (var item in listMembers)
+            {
             <div class="col-md-2 col-sm-4 col-xs-6">
-                @foreach (var item in listMembers)
-                {
+                
                     <div class="single-team-member">
                         <figure class="img-box">
                             <a href="#"><img src="@item.Image" alt="@item.Name"></a>
@@ -29,8 +30,9 @@
                         <h4>@item.Name</h4>
                         <a><p class="position">@item.position</p></a>
                     </div>
-                }
+               
             </div>
+                }
         </div>
     </div>
 </section>

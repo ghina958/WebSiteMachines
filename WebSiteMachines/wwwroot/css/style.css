@@ -3141,12 +3141,12 @@ select.g-select[option="selected"] {
 
 
 
-/*=================== boxed layout =================*/
+/*=================== boxed layout  =================*/
 .boxed_wrapper.active_boxlayout {
     width: 1350px;
     margin: 0 auto;
     background: #fff;
-    overflow-x:hidden;
+    overflow-x: hidden;
 }
 body.bg {
   background: url(../img/resources/pattern.png) repeat;

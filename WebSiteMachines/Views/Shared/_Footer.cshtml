@@ -12,9 +12,8 @@
 			<div class="col-md-4">
 				<div class="footer-widget about-widget">
                     <img src="~/images/logo/logo2.png" />
-					<a href="/Home/Home"><img src="images/logo/logo2.png" alt="" /></a>
 					<p>Industries multidisciplinary team of engineering experts can successfully carry out projects of any size and complexity.  Our team offers the most up-to-date, sustainable and trusted suppliers of quality control. </p>
-					<ul class="list-inline social">
+					@* <ul class="list-inline social">
 						<li>
 							<a href="#"><i class="fa fa-facebook"></i></a>
 						</li>
@@ -33,14 +32,14 @@
 						<li>
 							<a href="#"><i class="fa fa-linkedin"></i></a>
 						</li>
-					</ul>
-				</div><!-- /.footer-widget about-widget -->
+					</ul> *@
+				</div>
 			</div>
 
 			<div class="col-md-4">
 				<div class="footer-widget link-widget">
 					<div class="inner-title">
-						<h3><span class="white-color-text">Our Solution</span></h3>
+						<h3><span class="white-color-text">Our Products</span></h3>
 						<span class="decor-line"></span>
 					</div>
 					@foreach (var item in categories)
@@ -69,46 +68,47 @@
 								<li>
 									<div class="icon-box">
 										<i class="icon-geography"></i>
-									</div><!-- /.icon-box -->
+									</div>
 									<div class="text-box">
 										<p>@contactInfo.Address</p>
-									</div><!-- /.text-box -->
+									</div>
 								</li>
 								<li>
 									<div class="icon-box">
 										<i class="icon-technology-1"></i>
-									</div><!-- /.icon-box -->
+									</div>
 									<div class="text-box">
-										<p>@contactInfo.Phone1 <br>@contactInfo.MailUs</p>
-									</div><!-- /.text-box -->
+										<p>@contactInfo.Phone1 <br>@contactInfo.Phone2</p>
+										<p>@contactInfo.MailUs</p>
+									</div>
 								</li>
-								<li>
+								@* <li>
 									<div class="icon-box">
 										<i class="icon-telephone-with-fax"></i>
-									</div><!-- /.icon-box -->
+									</div>
 									<div class="text-box">
-										<p>@contactInfo.Phone2</p>
-									</div><!-- /.text-box -->
-								</li>
+										
+									</div>
+								</li> *@
 								<li>
 									<div class="icon-box">
 										<i class="icon-circular-wall-clock-for-livingroom"></i>
-									</div><!-- /.icon-box -->
+									</div>
 									<div class="text-box">
 										<p>Mon-Fri, 9am until 6pm</p>
-									</div><!-- /.text-box -->
+									</div>
 								</li>
-							</ul><!-- /.contact-infos -->
-						</div><!-- /.item -->
+							</ul>
+						</div>
 
-					</div><!-- /.contact-info-carousel owl-theme owl-carousel -->
+					</div>
 
-				</div><!-- /.footer-widget link-widget -->
+				</div>
 			</div>
 
-		</div><!-- /.row -->
-	</div><!-- /.container -->
-</footer><!-- /.footer -->
+		</div>
+	</div>
+</footer>
 <section class="footer-bottom">
 	<div class="container">
 		<div class="pull-left get-text">
@@ -116,9 +116,9 @@
 				<li><a href="#">Terms & Conditions</a></li>
 				<li><a href="#">Privacy Policy</a></li>
 			</ul>
-		</div><!-- /.pull-right -->
+		</div>
 		<div class="pull-right copy-text">
 			<p>Copyright 2016 <a href="#">ThemeKalia, All Right Reserved</a></p>
-		</div><!-- /.pull-left -->
-	</div><!-- /.container -->
-</section><!-- /.footer-bottom -->
+		</div>
+	</div>
+</section>
