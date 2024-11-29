@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,25 +6,14 @@
     <!-- mobile responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel=" stylesheet" href=" ~/css/responsive.css" asp-append-version="true" />
-	<link rel="stylesheet"  href=" ~/css/style.css" asp-append-version="true" />"
+	<link rel="stylesheet"  href=" ~/css/style.css" asp-append-version="true" />
 
 </head>
 
 
 <body>
+	<div class="boxed_wrapper">
 	<partial name="_ContactInfoHeader" />
-	@* <header class="main-header" >
-		<div class="header-top">
-			<div class="container">
-				<div class="top-right pull-right">
-					<ul class="links-nav clearfix">
-						<li><a href="/DashboardAdmin/Index">Admin</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		
-	</header> *@
 
 	@*  <div class="header-upper">
 		<div class="container">
@@ -78,9 +66,9 @@
 	</section>
 
 
-    <div class="container">
+		<div class="container-fluid">
 		@* class="pb-3" *@
-		<main role="main" class="pb-5">
+			<main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
@@ -138,5 +126,7 @@
 	<script id="map-script" src="~/js/default-map.js"></script>
     <script src="~/js/custom.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
+	
+	</div>
 </body>
 </html>
