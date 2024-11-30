@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebSiteMachines.Data;
 
@@ -11,9 +12,11 @@ using WebSiteMachines.Data;
 namespace WebSiteMachines.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241130142457_changeRolesOfUsers")]
+    partial class changeRolesOfUsers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -286,17 +289,17 @@ namespace WebSiteMachines.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "179dabe9-0761-4dbc-9a37-67f0f8e38fba",
+                            ConcurrencyStamp = "da8fb90d-ee4a-4f05-a1a6-86df21171960",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "sara",
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "SARA123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAHUIliyCRrsyRugkUdTJLvX8f5kGr/rxkDzg0XlqgtYF39D5w9nXyiKiylzIclGeA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECy1Q54Rbwc9T5pPzOzpFZOl8H+15MpinAoRo42pybRb5a5h0jmDTDObcWVkcetZGg==",
                             PhoneNumber = "+905050367177",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "491faf7e-999f-4751-b8ce-a641880fef83",
+                            SecurityStamp = "8a19949b-7ce8-480b-8458-136db4180a5c",
                             TwoFactorEnabled = false,
                             UserName = "sara123"
                         },
@@ -304,17 +307,17 @@ namespace WebSiteMachines.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b36047dc-0407-4a69-8ac3-fec8092be420",
+                            ConcurrencyStamp = "25fe34fe-65ae-41c6-b838-c5aa21b13e7d",
                             Email = "ahmet@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "ahmet",
                             LockoutEnabled = false,
                             NormalizedEmail = "AHMET@GMAIL.COM",
                             NormalizedUserName = "AHMET2000",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOtwbcZnUbs2O/TPJwweivPNJywqlYsmxZTI8RvSs/AKs/BFZaWCpwFtDD3s1OmpRA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENmofJAOeAZLpQwq+f5BUw8j3cAE+aI29FBVxtIFKPEWzW/dcU+n57GtvjB17OpbGg==",
                             PhoneNumber = "+905050364355",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "1972114c-0e6e-4918-8591-3fa26a0d005f",
+                            SecurityStamp = "a46a5696-cfa2-4099-815d-18f2010b4c81",
                             TwoFactorEnabled = false,
                             UserName = "ahmet2000"
                         });
@@ -439,31 +442,6 @@ namespace WebSiteMachines.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Product");
-                });
-
-            modelBuilder.Entity("WebSiteMachines.Models.SliderImages", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Header")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SliderImage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SliderImages");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

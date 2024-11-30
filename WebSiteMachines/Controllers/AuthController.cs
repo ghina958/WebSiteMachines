@@ -9,15 +9,18 @@ namespace WebSiteMachines.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly ILogger<HomeController> _logger;
         //private readonly ApplicationDbContext _context;
 
         #region Ctor
         public AuthController(UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager)
+            SignInManager<ApplicationUser> signInManager,
+            ILogger<HomeController> logger)
 
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _logger = logger;
         }
         #endregion
 
@@ -26,7 +29,7 @@ namespace WebSiteMachines.Controllers
             var response = new LoginModel();
             return View(response);
         }
-        //Auth/Login
+       
         [HttpPost]
         public async Task<ActionResult> Login(LoginModel loginModel)
         {
@@ -46,13 +49,32 @@ namespace WebSiteMachines.Controllers
                     }
                 }
                 //password is incorrect
-                TempData["Error"] = "Wrong credintails please try again ";
+                //TempData["Error"] = "Wrong credintails please try again ";
+                ModelState.AddModelError("", "User Name or Password is not correct , please try again ");
                 return View(loginModel);
             }
             //User not found
-            TempData["Error"] = "Wrong credintails please try again ";
-            return View(loginModel);
+            //TempData["Error"] = "Wrong credintails please try again ";
+            return RedirectToAction("AccessDenied");
         }
 
+        public async Task<IActionResult> LogOut(string returnUrl = null)
+        {
+            await _signInManager.SignOutAsync();
+            _logger.LogInformation("User logged out.");
+            if (returnUrl != null)
+            {
+                return LocalRedirect(returnUrl);
+            }
+            else
+            {
+                return RedirectToAction("Home", "Home");
+            }
+        }
+
+        public IActionResult AccessDenied()
+        {
+            return View(); // Inform users they lack sufficient permissions
+        }
     }
 }

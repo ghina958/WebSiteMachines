@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebSiteMachines.Data;
 
@@ -11,9 +12,11 @@ using WebSiteMachines.Data;
 namespace WebSiteMachines.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241129212804_teestingRoles")]
+    partial class teestingRoles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -113,7 +116,7 @@ namespace WebSiteMachines.Migrations
                         },
                         new
                         {
-                            UserId = 2,
+                            UserId = 1,
                             RoleId = 2
                         });
                 });
@@ -286,17 +289,17 @@ namespace WebSiteMachines.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "179dabe9-0761-4dbc-9a37-67f0f8e38fba",
+                            ConcurrencyStamp = "05073594-d0af-4371-a989-fa87da2a9d9e",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "sara",
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "SARA123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAHUIliyCRrsyRugkUdTJLvX8f5kGr/rxkDzg0XlqgtYF39D5w9nXyiKiylzIclGeA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELceUwWlQJ1/yavLFdVXBbEnjr/nW7sY258lWT0ZxamK6wtHnlG2sT4QjzlM6Q1FJA==",
                             PhoneNumber = "+905050367177",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "491faf7e-999f-4751-b8ce-a641880fef83",
+                            SecurityStamp = "aeaa2909-caf8-4982-8ef5-2f416e5bf188",
                             TwoFactorEnabled = false,
                             UserName = "sara123"
                         },
@@ -304,17 +307,17 @@ namespace WebSiteMachines.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b36047dc-0407-4a69-8ac3-fec8092be420",
+                            ConcurrencyStamp = "030ce18a-2c66-437c-999e-d7545702aced",
                             Email = "ahmet@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "ahmet",
                             LockoutEnabled = false,
                             NormalizedEmail = "AHMET@GMAIL.COM",
                             NormalizedUserName = "AHMET2000",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOtwbcZnUbs2O/TPJwweivPNJywqlYsmxZTI8RvSs/AKs/BFZaWCpwFtDD3s1OmpRA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELDoyhAIZWvGDfaWMluHvAg/3NCZCuhDIF//K+nlb7tzLxtnhd897iIJtl+4t2pEDw==",
                             PhoneNumber = "+905050364355",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "1972114c-0e6e-4918-8591-3fa26a0d005f",
+                            SecurityStamp = "978c1893-18e6-48b6-a650-b8f3ff782735",
                             TwoFactorEnabled = false,
                             UserName = "ahmet2000"
                         });
@@ -439,31 +442,6 @@ namespace WebSiteMachines.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Product");
-                });
-
-            modelBuilder.Entity("WebSiteMachines.Models.SliderImages", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Header")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SliderImage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SliderImages");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

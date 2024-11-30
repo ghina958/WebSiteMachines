@@ -30,6 +30,7 @@ namespace WebSiteMachines.Data
         public DbSet<ContactInfo> ContactInfo { get; set; }   
         public DbSet<AboutUs> AboutUs { get; set; }
         public DbSet<OurTeam> OurTeam { get; set; }
+        public DbSet<SliderImages> SliderImages { get; set; }
        
     }
 }

@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Auth\AccessDenied.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Auth\AccessDenied.cshtml" />
     <None Include="wwwroot\assets\revolution\.DS_Store" />
     <None Include="wwwroot\assets\revolution\js\.DS_Store" />
   </ItemGroup>
@@ -21,6 +26,14 @@
 
 	<ItemGroup>
 	  <Folder Include="wwwroot\images\AboutUs\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <UpToDateCheckInput Remove="Views\Auth\AccessDenied.cshtml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <_ContentIncludedByDefault Remove="Views\Auth\AccessDenied.cshtml" />
 	</ItemGroup>
 
 </Project>

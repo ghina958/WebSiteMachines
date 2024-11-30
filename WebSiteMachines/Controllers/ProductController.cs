@@ -4,9 +4,11 @@ using WebSiteMachines.Interfaces;
 using WebSiteMachines.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using WebSiteMachines.ViewModels.Product;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebSiteMachines.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
@@ -27,7 +29,6 @@ namespace WebSiteMachines.Controllers
             {
                 products = allProduct
             };
-            //var filter = new ProductFilter();
             var categories = await _categoryService.GetAllCategories(new CategoryFilter());
 
             foreach (var item in categories)

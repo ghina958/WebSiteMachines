@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -19,7 +20,8 @@ builder.Services.AddScoped<IPhotoService, PhotoService>();
 builder.Services.AddScoped<IAboutUsService, AboutUsService>();
 builder.Services.AddScoped<IContactInfoService, ContactInfoService>();
 builder.Services.AddScoped<IEmailSender, EmailSenderService>();
-builder.Services.AddScoped<IOurTeamService, OurTeamService>();
+builder.Services.AddScoped<IOurTeamService, OurTeamService>(); 
+builder.Services.AddScoped<ISliderImagesService,SliderImagesService>(); 
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -32,7 +34,22 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 });
 
 builder.Services.AddIdentity<ApplicationUser, AppUserRole>()
-	.AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
+	.AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddMemoryCache();
+builder.Services.AddSession();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+    //.AddCookie(options =>
+    //{
+    //    options.LoginPath = "/Auth/Login";
+    //    options.AccessDeniedPath = "/Auth/AccessDenied"; // Redirect unauthorized users
+    //    options.SlidingExpiration = true;
+    //});
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminPolicy", policy => policy.RequireRole("Admin"));
+});
 
 builder.Services.AddRazorPages();
 var app = builder.Build();

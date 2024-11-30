@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WebSiteMachines.Interfaces;
 using WebSiteMachines.ViewModels.DashBoard;
 
 namespace WebSiteMachines.Controllers
 {
-	public class DashboardAdminController : Controller
+    [Authorize(Roles = "Admin")]
+    public class DashboardAdminController : Controller
 	{
         private readonly IDashboardAdminService _dashboardAdminService;
 

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebSiteMachines.FiltersModel;
@@ -7,6 +8,7 @@ using WebSiteMachines.ViewModels.Category;
 
 namespace WebSiteMachines.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -28,11 +30,6 @@ namespace WebSiteMachines.Controllers
             return View(model);
 
         }
-
-
-
-
-
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -7,12 +7,7 @@ namespace WebSiteMachines.ViewModels.AboutUs
         public string Title { get; set; }
         public string Description { get; set; }
         public IFormFile? MainImage { get; set; } 
-
         public string MainImagePath { get; set; } 
-
-        public List<IFormFile>? AdditionalImages { get; set; } 
-
-        public List<string>? AdditionalImagePaths { get; set; }
 
     }
 }

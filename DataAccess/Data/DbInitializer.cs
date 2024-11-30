@@ -52,6 +52,34 @@ namespace WebSiteMachines.Data
             var hasher2 = new PasswordHasher<ApplicationUser>();
             appUser2.PasswordHash = hasher.HashPassword(appUser2, "ahmet2000");
             modelBuilder.Entity<ApplicationUser>().HasData(appUser2);
+
+
+            AppUserRole role1 = new()
+            {
+                Id = 1,
+                Name = "Admin",
+                NormalizedName = "Administrator",
+                ConcurrencyStamp = "CA5E4BB1-5245-42DE-A631-6AF6B58E3CBD",
+            };
+            modelBuilder.Entity<AppUserRole>().HasData(role1);
+
+            AppUserRole role2 = new()
+            {
+                Id = 2,
+                Name = "User",
+                NormalizedName = "User",
+                ConcurrencyStamp = "50262EC3-A41E-47E5-BA7B-A04CB03062E5",
+            };
+            modelBuilder.Entity<AppUserRole>().HasData(role2);
+
+            modelBuilder.Entity<IdentityUserRole<int>>()
+                .HasData(new IdentityUserRole<int> { RoleId = 1, UserId = 1 });
+
+            //modelBuilder.Entity<IdentityUserRole<int>>()
+            //   .HasData(new IdentityUserRole<int> { RoleId = 2, UserId = 1 });
+
+            modelBuilder.Entity<IdentityUserRole<int>>()
+            .HasData(new IdentityUserRole<int> { RoleId = 2, UserId = 2 });
         }
     }
 }

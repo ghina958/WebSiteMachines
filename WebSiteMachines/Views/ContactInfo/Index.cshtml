@@ -5,126 +5,135 @@
     ViewData["Title"] = "Contact Info";
     Layout = "_Layout";
 }
+<div class="boxed_wrapper">
+    <div class="inner-banner has-base-color-overlay text-center" style="background: url(@Model.MainImagePath) no-repeat center center; background-size: cover;">
+        <div class="container">
+            <div class="box">
+                <h3>Contact Us</h3>
+            </div>
+        </div>
+    </div>
 
-<section class="contact-post">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-4 col-sm-6 col-xs-12">
-				<h4>Contact Information</h4>
-				<div class="item">
-					<ul class="contact-infos">
+    <section class="contact-post">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <h4>Contact Information</h4>
+                    <div class="item">
+                        <ul class="contact-infos">
 
-						<li>
-							<div class="icon-box">
-								<i class="icon-geography"></i>
-							</div><!-- /.icon-box -->
-							<div class="text-box">
-								<p>@Model.Address</p>
-							</div><!-- /.text-box -->
-						</li>
-						<li>
-							<div class="icon-box">
-								<i class="icon-technology-1"></i>
-							</div><!-- /.icon-box -->
-							<div class="text-box">
-								<p><b>Call Us:</b> @Model.Phone1 <br>Mail Us: @Model.MailUs</p>
-							</div><!-- /.text-box -->
-						</li>
-						<li>
-							<div class="icon-box">
-								<i class="icon-telephone-with-fax"></i>
-							</div><!-- /.icon-box -->
-							<div class="text-box">
-								<p><b>Call Us:</b> @Model.Phone2</p>
-							</div><!-- /.text-box -->
-						</li>
-					</ul>
-				</div>
+                            <li>
+                                <div class="icon-box">
+                                    <i class="icon-geography"></i>
+                                </div>
+                                <div class="text-box">
+                                    <p>@Model.Address</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon-box">
+                                    <i class="icon-technology-1"></i>
+                                </div>
+                                <div class="text-box">
+                                    <p><b>Call Us:</b> @Model.Phone1 <br>Mail Us: @Model.MailUs</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon-box">
+                                    <i class="icon-telephone-with-fax"></i>
+                                </div>
+                                <div class="text-box">
+                                    <p><b>Call Us:</b> @Model.Phone2</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
 
-			</div>
-			<div class="col-md-4 col-sm-6 col-xs-12">
-				<h4>Business Hours</h4>
-				<div class="item">
-					<div class="contact-infos Business">
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <h4>Business Hours</h4>
+                    <div class="item">
+                        <div class="contact-infos Business">
 
-						<br><p>
-							We are Working Monday to Saturday, If you <br>
-							have any doubts you can visit our office <br>between below mentioned Hours.
-						</p>
-						<ul>
-							<li>
-								<b>Monday to Friday:</b> 09.00am to 18.00pm
-							</li>
-							<li>
-								<b>Saturday:</b> 10.00am to 16.00pm
-							</li>
-							<li>
-								<b>Sunday: </b>Closed &amp; Also all Official Holidays
-							</li>
-						</ul>
+                            <br><p>
+                                We are Working Monday to Saturday, If you <br>
+                                have any doubts you can visit our office <br>between below mentioned Hours.
+                            </p>
+                            <ul>
+                                <li>
+                                    <b>Monday to Friday:</b> 09.00am to 18.00pm
+                                </li>
+                                <li>
+                                    <b>Saturday:</b> 10.00am to 16.00pm
+                                </li>
+                                <li>
+                                    <b>Sunday: </b>Closed &amp; Also all Official Holidays
+                                </li>
+                            </ul>
 
-					</div>
-				</div>
+                        </div>
+                    </div>
 
-			</div>
-			<div class="col-md-4 col-sm-6 col-xs-12">
-				<h4>Twitter</h4>
-				<div class="item">
-					<div class="text">
-						<br><p>The latest Tweets from  We are Industries. We are No.1 Provides of Industrial Solutions. </p>
-						<p>The official feed for Industries employees! Follow to see how we're building the best Industrial Solutions.</p>
-						<p> <b>Tweet Us:</b> </p>
-					</div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <h4>Twitter</h4>
+                    <div class="item">
+                        <div class="text">
+                            <br><p>The latest Tweets from  We are Industries. We are No.1 Provides of Industrial Solutions. </p>
+                            <p>The official feed for Industries employees! Follow to see how we're building the best Industrial Solutions.</p>
+                            <p> <b>Tweet Us:</b> </p>
+                        </div>
 
-				</div>
-			</div>
+                    </div>
+                </div>
 
-		</div>
-		<div class="border-bottom"></div>
+            </div>
+            <div class="border-bottom"></div>
 
-	</div>
-</section>
+        </div>
+    </section>
 
-<section class="single_contact_form">
-	<div class="container">
-		<div class="section-title text-center">
-			<div class="row">
-				<div class="col-md-12">
-					<h2>Send Your Message</h2>
-					<span class="decor"></span>
-				</div>
-			</div>
-		</div>
+    <section class="single_contact_form">
+        <div class="container">
+            <div class="section-title text-center">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Send Your Message</h2>
+                        <span class="decor"></span>
+                    </div>
+                </div>
+            </div>
 
-		<div class="row">
-			<!--Form Column -->
-			<div class="column form-column col-md-9 col-sm-9 col-xs-12">
-				<!--form-box-->
-				<div class="form-box default-form">
-					<div class="default-form">
-						<form action="inc/sendemail.php" class="home-contact-form contact-form select-form">
-							<div class="row clearfix">
-								<div class="col-md-6 col-sm-6 col-xs-12">
-									<div class="form-group">
-										<input type="text" name="username" value="" placeholder="Your Name *" required>
-									</div>
-									<div class="form-group">
-										<input type="email" name="email" value="" placeholder="Your Mail *" required>
-									</div>
-								</div>
-								<div class="col-md-6 col-sm-6 col-xs-12">
-									<div class="form-group">
-										<textarea name="message" placeholder="Your Message...."></textarea>
-									</div>
-									<div class="form-group">
-										<button type="submit" class="thm-btn thm-color">send message</button>
-									</div>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+            <div class="row">
+                <!--Form Column -->
+                <div class="column form-column col-md-9 col-sm-9 col-xs-12">
+                    <!--form-box-->
+                    <div class="form-box default-form">
+                        <div class="default-form">
+                            <form action="inc/sendemail.php" class="home-contact-form contact-form select-form">
+                                <div class="row clearfix">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <input type="text" name="username" value="" placeholder="Your Name *" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" name="email" value="" placeholder="Your Mail *" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <textarea name="message" placeholder="Your Message...."></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="thm-btn thm-color">send message</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

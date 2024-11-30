@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WebSiteMachines.Interfaces;
 using WebSiteMachines.ViewModels.AboutUs;
 
@@ -16,8 +17,9 @@ namespace WebSiteMachines.Controllers
 		}
 
 
-		#region Admin manage of about Us Area
-		[HttpGet]
+        #region Admin manage of about Us Area
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             var aboutUs = await _aboutUsService.GetById();

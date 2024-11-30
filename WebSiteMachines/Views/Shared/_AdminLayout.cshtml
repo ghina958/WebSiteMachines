@@ -47,9 +47,9 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="/Home" class="nav-link">
+                    <a href="/Auth/LogOut" class="nav-link">
                         <i class="fas fa-store"></i>
-                        Public Store
+                        Log Out
                     </a>
                 </li>
             </ul>
@@ -95,9 +95,19 @@
                             </a>
                         </li>
 
+                         <li class="nav-item">
+                            <a href="/OurTeam/Index" class="nav-link @(ViewData["ActiveSidebar"]?.ToString() == "liOurTeam" ? "alert-primary" : "")  ">
+                                <i class='nav-icon  fas fa-user-plus' style='font-size:18px'></i>
+                                <p>
+                                    Our Team
+                                </p>
+                            </a>
+                        </li>
+
+
                         <li class="nav-item">
                             <a href="/ContactInfo/IndexAdmin" class="nav-link @(ViewData["ActiveSidebar"]?.ToString() == "liContactInfo" ? "alert-primary" : "") ">
-                                <i class='nav-icon  fas fa-shopping-bag' style='font-size:18px'></i>
+                                <i class='nav-icon  fas fa-phone' style='font-size:18px'></i>
                                 <p>
                                     Contact Info
                                 </p>
@@ -106,22 +116,14 @@
 
                         <li class="nav-item">
                             <a href="/AboutUs/Index" class="nav-link @(ViewData["ActiveSidebar"]?.ToString() == "liAboutUs" ? "alert-primary" : "")  ">
-                                <i class='nav-icon  fas fa-shopping-bag' style='font-size:18px'></i>
+                                <i class='nav-icon  fas fa-address-card' style='font-size:18px'></i>
                                 <p>
                                     About Us
                                 </p>
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a href="/OurTeam/Index" class="nav-link @(ViewData["ActiveSidebar"]?.ToString() == "liOurTeam" ? "alert-primary" : "")  ">
-                                <i class='nav-icon  fas fa-shopping-bag' style='font-size:18px'></i>
-                                <p>
-                                    Our Team
-                                </p>
-                            </a>
-                        </li>
-
+                   
 
                      @*    <li class="nav-item menu-open">
                             <a href="/Service/Index" class="nav-link ">

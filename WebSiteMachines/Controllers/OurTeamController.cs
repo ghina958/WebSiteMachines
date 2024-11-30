@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Web.ViewModels.OurTeam;
 using WebSiteMachines.Interfaces;
 using WebSiteMachines.Models;
@@ -6,6 +7,7 @@ using WebSiteMachines.Repositories;
 
 namespace WebSiteMachines.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class OurTeamController : Controller
     {
         private readonly IOurTeamService _ourTeamService;

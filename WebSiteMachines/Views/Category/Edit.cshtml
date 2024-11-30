@@ -26,5 +26,18 @@
         <span asp-validation-for="Image" class="text-danger"></span>
     </div>
 
+    <div class="form-group">
+        <label asp-for="Image">Image</label>
+        @if (Model.CurrentImageUrl != null)
+        {
+            <div>
+                <img src="@Model.CurrentImageUrl" alt="Current Image" style="max-height: 150px; max-width: 150px;" />
+                <p>Current Image</p>
+            </div>
+        }
+        <input asp-for="Image" type="file" class="form-control" placeholder="Image">
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+
     <button type="submit" class="btn btn-primary">Update</button>
 </form>

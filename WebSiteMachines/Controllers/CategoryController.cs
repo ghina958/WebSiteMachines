@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WebSiteMachines.FiltersModel;
 using WebSiteMachines.Interfaces;
 using WebSiteMachines.Models;
@@ -54,11 +55,10 @@ namespace WebSiteMachines.Controllers
 
         #region Admin area
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             var allcategory = await _categoryService.GetAllCategories(new CategoryFilter());
-            //ViewBag.BreadCrumbFirstItem = "Category List";
-            //ViewBag.BreadCrumbFirstItemLink = "/category";
             var model = new CategoryViewModel()
             {
                 Categories = allcategory
@@ -67,7 +67,7 @@ namespace WebSiteMachines.Controllers
 
         }
 
-
+       
         [HttpPost]
         public async Task<IActionResult> Index(CategoryFilter filter)
         {
@@ -79,18 +79,15 @@ namespace WebSiteMachines.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create()
         {
             var model = new CategoryUpsertViewModel();
-            //ViewBag.Title = "Add" + model.Name;
-            //ViewBag.BreadCrumbFirstItem = "Category List";
-            //ViewBag.BreadCrumbFirstItemLink = "/category";
-            //ViewBag.BreadCrumbSecondItem = "Add";
-
             return View(model);
 
         }
 
+      
         [HttpPost]
         public async Task<IActionResult> Create(CategoryUpsertViewModel Vm)
         {
@@ -127,7 +124,8 @@ namespace WebSiteMachines.Controllers
 
             return View(Vm);
         }
-   
+
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Edit(int id)
         {
             Category category = await _categoryService.GetCategoryById(id);
@@ -144,6 +142,7 @@ namespace WebSiteMachines.Controllers
             return View(VM);
         }
 
+       
         [HttpPost]
         public async Task<ActionResult> Edit(int id, CategoryUpsertViewModel VM)
         {
@@ -181,6 +180,7 @@ namespace WebSiteMachines.Controllers
             return View(VM);
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Delete(int id)
         {
             var cat = await _categoryService.GetCategoryById(id);
@@ -193,6 +193,7 @@ namespace WebSiteMachines.Controllers
             return View(cat);
         }
 
+       
         [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
