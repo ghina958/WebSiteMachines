@@ -7,12 +7,12 @@ namespace WebSiteMachines.Controllers
 {
     public class AuthController : Controller
     {
+        #region Fields
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<HomeController> _logger;
         //private readonly ApplicationDbContext _context;
 
-        #region Ctor
         public AuthController(UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ILogger<HomeController> logger)
@@ -22,15 +22,17 @@ namespace WebSiteMachines.Controllers
             _signInManager = signInManager;
             _logger = logger;
         }
-        #endregion
+		#endregion
 
-        public ActionResult Login()
+		
+        [HttpGet ,Route("/Admin")]
+		public ActionResult Login()
         {
             var response = new LoginModel();
             return View(response);
         }
        
-        [HttpPost]
+        [HttpPost, Route("/Admin")]
         public async Task<ActionResult> Login(LoginModel loginModel)
         {
             if (!ModelState.IsValid) return View(loginModel);

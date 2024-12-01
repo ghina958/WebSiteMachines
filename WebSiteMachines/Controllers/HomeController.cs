@@ -11,6 +11,7 @@ namespace WebSiteMachines.Controllers
     [AllowAnonymous]
     public class HomeController : Controller
     {
+        #region Fields
         private readonly ILogger<HomeController> _logger;
         private readonly ICategoryService _categoryService;
 
@@ -19,8 +20,9 @@ namespace WebSiteMachines.Controllers
             _logger = logger;
             _categoryService = categoryService;
         }
+        #endregion
 
-        public async Task<IActionResult> Home()
+		public async Task<IActionResult> Home()
         {
             var allcategory = await _categoryService.GetAllCategories(new CategoryFilter());
             var model = new CategoryViewModel()

@@ -7,6 +7,7 @@ namespace WebSiteMachines.Controllers
 {
     public class AboutUsController : Controller
     {
+        #region Fields
         private readonly IAboutUsService _aboutUsService;
 		private readonly IPhotoService _photoService;
 
@@ -15,11 +16,12 @@ namespace WebSiteMachines.Controllers
 			_aboutUsService = aboutUsService;
 			_photoService = photoService;
 		}
-
+        #endregion
 
         #region Admin manage of about Us Area
         [Authorize(Roles = "Admin")]
-        [HttpGet]
+
+        [HttpGet, Route("/AboutUs/Index")]
         public async Task<IActionResult> Index()
         {
             var aboutUs = await _aboutUsService.GetById();
@@ -38,7 +40,7 @@ namespace WebSiteMachines.Controllers
             return View(model);
         }
 
-        [HttpPost]
+        [HttpPost, Route("/AboutUs/Index")]
         public async Task<IActionResult> Index(AboutUsViewModel vm)
         {
             if (!ModelState.IsValid)
@@ -74,12 +76,10 @@ namespace WebSiteMachines.Controllers
 			}
             return View(vm);
         }
-
-
         #endregion
 
 
-        [HttpGet]
+        [HttpGet, Route("/AboutUs/Home")]
         public async Task<IActionResult> IndexHome()
         {
             var aboutUs = await _aboutUsService.GetById();

@@ -11,6 +11,7 @@ namespace WebSiteMachines.Controllers
     [Authorize(Roles = "Admin")]
     public class ProductController : Controller
     {
+        #region Fields
         private readonly IProductService _productService;
         private readonly ICategoryService _categoryService;
         private readonly IPhotoService _photoService;
@@ -20,9 +21,10 @@ namespace WebSiteMachines.Controllers
             _categoryService = categoryService;
             _photoService = photoService;
         }
+        #endregion
 
-
-        public async Task<IActionResult> Index()
+        [HttpGet, Route("/Product/Index")]
+		public async Task<IActionResult> Index()
         {
             var allProduct = await _productService.GetAll(new ProductFilter());
             var model = new ProductViewModel()
@@ -44,7 +46,7 @@ namespace WebSiteMachines.Controllers
             return View(model);
         }
 
-        [HttpPost]
+        [HttpPost, Route("/Product/Index")]
         public async Task<IActionResult> Index(ProductFilter filter)
         {
             var allProduct = await _productService.GetAll(filter);
@@ -67,13 +69,11 @@ namespace WebSiteMachines.Controllers
             return View(model);
 
         }
-        public async Task<IActionResult> Create()
+
+		[HttpGet, Route("/CreateProduct")]
+		public async Task<IActionResult> Create()
         {
             var model = new ProductUpsertViewModel();
-            //ViewBag.Title = "Add" + model.Name;
-            //ViewBag.BreadCrumbFirstItem = "Product List";
-            //ViewBag.BreadCrumbFirstItemLink = "/product";
-            //ViewBag.BreadCrumbSecondItem = "Add";
             var categories = await _categoryService.GetAllCategories(new CategoryFilter());
             foreach (var item in categories)
             {
@@ -88,7 +88,7 @@ namespace WebSiteMachines.Controllers
             return View(model);
         }
 
-        [HttpPost]
+        [HttpPost, Route("/CreateProduct")]
         public async Task<IActionResult> Create(ProductUpsertViewModel productVM)
         {
             if (ModelState.IsValid)
@@ -129,15 +129,12 @@ namespace WebSiteMachines.Controllers
             return View(productVM);
         }
 
-        public async Task<IActionResult> Edit(int id)
+		[HttpGet, Route("/EditProduct")]
+		public async Task<IActionResult> Edit(int id)
         {
             Product? product = await _productService.GetProductByIdAsync(id);
             if (product == null) return NotFound();
 
-            //ViewBag.Title = "Edit " + product.Name;
-            //ViewBag.BreadCrumbFirstItem = "Products List";
-            //ViewBag.BreadCrumbFirstItemLink = "/product";
-            //ViewBag.BreadCrumbSecondItem = "Edit";
             var categories = await _categoryService.GetAllCategories(new CategoryFilter() );
             var VM = new ProductUpsertViewModel
             {
@@ -158,7 +155,7 @@ namespace WebSiteMachines.Controllers
             return View(VM);
         }
 
-        [HttpPost]
+        [HttpPost, Route("/EditProduct")]
         public async Task<IActionResult> Edit(int id, ProductUpsertViewModel VM)
         {
             if (ModelState.IsValid)
@@ -204,7 +201,26 @@ namespace WebSiteMachines.Controllers
             return View(VM);
         }
 
+		[HttpGet, Route("/DeleteProduct")]
+		public async Task<ActionResult> Delete(int id)
+		{
+			var entity = await _productService.GetProductByIdAsync(id);
+			if (entity == null) return View("Error");
+			ViewBag.Title = "Delete " + entity.Name;
+			return View(entity);
+		}
 
 
-    }
+		[HttpPost, ActionName("Delete"), Route("/DeleteProduct")]
+		public async Task<IActionResult> DeleteProduct(int id)
+		{
+			var entity = await _productService.GetProductByIdAsync(id);
+			if (entity == null) { return View("Error"); }
+
+			_productService.Delete(entity);
+			return RedirectToAction("Index");
+		}
+
+
+	}
 }

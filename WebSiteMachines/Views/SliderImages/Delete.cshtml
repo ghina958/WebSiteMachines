@@ -1,14 +1,14 @@
-﻿@model Category
+﻿@model SliderImages
 
 @{
-    ViewData["Title"] = "Delete Categor";
+    ViewData["Title"] = "Delete the Slider Images";
     Layout = "_AdminLayout";
 }
 
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">
-            Are you sure to delete this Category ?
+            Are you sure to delete this Slider Images ?
 
         </h3>
     </div>
@@ -17,7 +17,12 @@
     <div class="card-body" style="display: block;">
         <form method="post" asp-action="Delete" enctype="multipart/form-data">
             <div class="col-6">
-                <p>Category Name : @Model.Name </p>
+                @if (Model.SliderImage != null)
+                {
+                    <p>Slider Image</p>
+                    <img src="@Model.SliderImage" alt="Current Image" style="max-height: 150px; max-width: 150px;" />
+                }
+                <p>Slider Header : @Model.Header </p>
             </div>
 
             <button class="btn btn-danger float-right mt-3" type="submit" value="Confirm">

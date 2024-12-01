@@ -1,14 +1,14 @@
-﻿@model Category
+﻿@model Product
 
 @{
-    ViewData["Title"] = "Delete Categor";
+    ViewData["Title"] = "Delete Product";
     Layout = "_AdminLayout";
 }
 
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">
-            Are you sure to delete this Category ?
+            Are you sure to delete this Product ?
 
         </h3>
     </div>
@@ -17,7 +17,13 @@
     <div class="card-body" style="display: block;">
         <form method="post" asp-action="Delete" enctype="multipart/form-data">
             <div class="col-6">
-                <p>Category Name : @Model.Name </p>
+                <p>Product Name : @Model.Name </p>
+                @if (Model.ProductImage != null)
+                {
+                    <p>Product Image</p>
+                    <img src="@Model.ProductImage" alt="Current Image" style="max-height: 150px; max-width: 150px;" />
+                }
+             
             </div>
 
             <button class="btn btn-danger float-right mt-3" type="submit" value="Confirm">

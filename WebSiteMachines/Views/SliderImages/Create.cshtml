@@ -1,0 +1,28 @@
+﻿@using Web.ViewModels.SliderImages
+
+@model SliderImagesUpsertViewModel
+
+@{ 
+    ViewData["Title"] = "Create Slider Images";
+    Layout = "_AdminLayout";
+}
+<form method="post" asp-action="Create" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label asp-for="Header">Header</label>
+        <input asp-for="Header" class="form-control" placeholder="Enter Header">
+        <span asp-validation-for="Header" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Content">Content</label>
+        <input asp-for="Content" class="form-control" placeholder="Enter the Content">
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="FormFileImage">Slider Image</label>
+        <input asp-for="FormFileImage" type="file" class="form-control" placeholder="Image">
+        <span asp-validation-for="FormFileImage" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,123 +1,13 @@
 ﻿@using WebSiteMachines.ViewModels.Category
 @model CategoryViewModel;
 
+
 @{
     ViewData["Title"] = "Home";
     Layout = "_Layout";
 }
 
-
-    <section class="rev_slider_wrapper ">
-        <div id="slider1" class="rev_slider" data-version="5.0">
-            <ul>
-                <li data-transition="slidingoverlayleft">
-                    <img src="~/images/slider/1.jpg" width="1920" height="705" data-bgposition="top center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="1" />
-                    <div class="tp-caption sfl tp-resizeme factory-caption-h1"
-                         data-x="right" data-hoffset="60"
-                         data-y="top" data-voffset="150"
-                         data-whitespace="nowrap"
-                         data-transform_idle="o:1;"
-                         data-transform_in="o:0"
-                         data-transform_out="o:0"
-                         data-start="500">
-                        Leading Solution for <br>all Factory Business
-                    </div>
-                    <div class="tp-caption sfl tp-resizeme factory-caption-p"
-                         data-x="right" data-hoffset="40"
-                         data-y="top" data-voffset="300"
-                         data-whitespace="nowrap"
-                         data-transform_idle="o:1;"
-                         data-transform_in="o:0"
-                         data-transform_out="o:0"
-                         data-start="500">
-                        We are the best  world-class team of designers <br>and industrial engineers.
-                    </div>
-                    <div class="tp-caption sfl tp-resizeme factory-caption-p"
-                         data-x="right" data-hoffset="390"
-                         data-y="top" data-voffset="400"
-                         data-whitespace="nowrap"
-                         data-transform_idle="o:1;"
-                         data-transform_in="o:0"
-                         data-transform_out="o:0"
-                         data-start="500">
-                        <a href="contact.html" class="thm-btn">Contact us</a>
-                    </div>
-                  
-
-                </li>
-                <li data-transition="slidingoverlayleft">
-                    <img src="~/images/slider/2.jpg" alt="" width="1920" height="705" data-bgposition="top center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="2" />
-                    <div class="tp-caption sfl tp-resizeme factory-caption-h1"
-                         data-x="left" data-hoffset="0"
-                         data-y="top" data-voffset="210"
-                         data-whitespace="nowrap"
-                         data-transform_idle="o:1;"
-                         data-transform_in="o:0"
-                         data-transform_out="o:0"
-                         data-start="500">
-                        Committed to Superior<br>Quality and Best Results
-                    </div>
-                    <div class="tp-caption sfl tp-resizeme factory-caption-p"
-                         data-x="left" data-hoffset="0"
-                         data-y="top" data-voffset="375"
-                         data-whitespace="nowrap"
-                         data-transform_idle="o:1;"
-                         data-transform_in="o:0"
-                         data-transform_out="o:0"
-                         data-start="500">
-                        Industries company’s factory has a production’s <br>
-                        capacity of 72,000 Metric Tons.
-                    </div>
-                    <div class="tp-caption sfl tp-resizeme factory-caption-p"
-                         data-x="left" data-hoffset="0"
-                         data-y="top" data-voffset="475 "
-                         data-whitespace="nowrap"
-                         data-transform_idle="o:1;"
-                         data-transform_in="o:0"
-                         data-transform_out="o:0"
-                         data-start="500">
-                        <a href="contact.html" class="thm-btn">Contact us</a>
-                    </div>
-                   
-                </li>
-                <li data-transition="slidingoverlayleft">
-                    <img src="~/images/slider/3.jpg" alt="" width="1920" height="705" data-bgposition="top center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="2">
-
-                    <div class="tp-caption sfl tp-resizeme factory-caption-h1 text-center"
-                         data-x="center" data-hoffset="0"
-                         data-y="top" data-voffset="210"
-                         data-whitespace="nowrap"
-                         data-transform_idle="o:1;"
-                         data-transform_in="o:0"
-                         data-transform_out="o:0"
-                         data-start="500">
-                        Building a Brighter Future with <br>Advanced Materials
-                    </div>
-                    <div class="tp-caption sfl tp-resizeme factory-caption-p text-center"
-                         data-x="center" data-hoffset="0"
-                         data-y="top" data-voffset="375"
-                         data-whitespace="nowrap"
-                         data-transform_idle="o:1;"
-                         data-transform_in="o:0"
-                         data-transform_out="o:0"
-                         data-start="500">
-                        Enjoy the benefits of these advanced technologies <br>that Industries brings to you.
-                    </div>
-                    <div class="tp-caption sfl tp-resizeme factory-caption-p text-center"
-                         data-x="center" data-hoffset="-110"
-                         data-y="top" data-voffset="475"
-                         data-whitespace="nowrap"
-                         data-transform_idle="o:1;"
-                         data-transform_in="o:0"
-                         data-transform_out="o:0"
-                         data-start="500">
-                        <a href="/ContactInfo/Index" class="thm-btn">Contact us</a>
-                    </div>
-                    
-                </li>
-            </ul>
-        </div>
-    </section>
+<partial name="_SliderImages" />
 
     <section class="our-services">
         <div class="container">

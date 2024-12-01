@@ -1,9 +1,6 @@
-﻿using Castle.Core.Smtp;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebSiteMachines.Interfaces;
-using WebSiteMachines.Repositories;
-using WebSiteMachines.ViewModels.AboutUs;
 using WebSiteMachines.ViewModels.ContactInfo;
 using IEmailSender = WebSiteMachines.Interfaces.IEmailSender;
 
@@ -11,11 +8,10 @@ namespace WebSiteMachines.Controllers
 {
     public class ContactInfoController : Controller
     {
-		private readonly IContactInfoService _contactInfoService;
+        #region Fields
+        private readonly IContactInfoService _contactInfoService;
 		private readonly IEmailSender _emailSender;
         private readonly IPhotoService _photoService;
-
-
 
         public ContactInfoController(IContactInfoService contactInfoService, IEmailSender emailSender, IPhotoService photoService)
         {
@@ -23,8 +19,9 @@ namespace WebSiteMachines.Controllers
             _emailSender = emailSender;
             _photoService = photoService;
         }
+        #endregion
 
-        [HttpGet]
+        [HttpGet, Route("/ContactInfo/Home")]
 		public async Task<IActionResult> Index()
         {
 			var entity = await _contactInfoService.GetContactInfo();
@@ -63,6 +60,7 @@ namespace WebSiteMachines.Controllers
         //      }
 
         [Authorize(Roles = "Admin")]
+        [HttpGet, Route("/ContactInfo/Index")]
         public async Task<IActionResult> IndexAdmin()
 		{
 			var entity = await _contactInfoService.GetContactInfo();
@@ -83,7 +81,7 @@ namespace WebSiteMachines.Controllers
 			return View(model);
 		}
 
-        [HttpPost]
+        [HttpPost, Route("/ContactInfo/Index")]
         public async Task<IActionResult> IndexAdmin(ContactInfoViewModel vm)
         {
 			if (!ModelState.IsValid)

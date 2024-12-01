@@ -1,0 +1,55 @@
+﻿@using Web.ViewModels.SliderImages
+@model SliderImagesViewModel
+
+@{
+    ViewData["Title"] = "SliderImages";
+    ViewData["ActiveSidebar"] = "liSliderImages";
+    Layout = "_AdminLayout";
+}
+
+<div class="row">
+    <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-tools">
+                    <a href="/CreateSliderImages" class="btn btn-bloks btn-success">Add</a>
+                    </div>
+                </div>
+            </div>
+
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-head-fixed text-nowrap">
+                    <thead>
+                        <tr>
+                            <th>Slider Image</th>
+                            <th>Header</th>
+                            <th data-visible="false">Content</th>
+                            <th>Options</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model.SliderImages)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img src="@item.SliderImage" class="img-circle img-size-50 mr-5">
+                                </td>
+                                <td>@item.Header</td>
+                                <td>@item.Content</td>
+                                <td>
+                                    <a class="btn btn-success btn-sm" asp-controller="SliderImages" asp-action="Edit" asp-route-id="@item.Id">
+                                        <i class='fas fa-edit'></i>
+                                    </a>
+                                    <a class="btn btn-danger btn-sm" asp-controller="SliderImages" asp-action="Delete" asp-route-id="@item.Id">
+                                        <i class=" fas fa-trash fa-lg"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

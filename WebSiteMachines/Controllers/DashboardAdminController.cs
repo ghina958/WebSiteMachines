@@ -8,14 +8,16 @@ namespace WebSiteMachines.Controllers
     [Authorize(Roles = "Admin")]
     public class DashboardAdminController : Controller
 	{
+        #region Fields
         private readonly IDashboardAdminService _dashboardAdminService;
 
         public DashboardAdminController(IDashboardAdminService dashboardAdminService)
         {
             _dashboardAdminService = dashboardAdminService;
         }
+        #endregion
 
-
+        [HttpGet , Route("/Dashboard/Index")]
         public async Task<IActionResult> Index()
         {
             var countOfAllCategories = await _dashboardAdminService.GetCategoriesCount();

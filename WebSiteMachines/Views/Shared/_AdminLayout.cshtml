@@ -69,7 +69,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                        
                         <li class="nav-item menu-open">
-                            <a href="/DashboardAdmin/Index" class="nav-link text-white  @(ViewData["ActiveSidebar"]?.ToString() == "liDashBoard" ? "alert-primary" : "")">
+                            <a href="/Dashboard/Index" class="nav-link text-white  @(ViewData["ActiveSidebar"]?.ToString() == "liDashBoard" ? "alert-primary" : "")">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -106,7 +106,7 @@
 
 
                         <li class="nav-item">
-                            <a href="/ContactInfo/IndexAdmin" class="nav-link @(ViewData["ActiveSidebar"]?.ToString() == "liContactInfo" ? "alert-primary" : "") ">
+                            <a href="/ContactInfo/Index" class="nav-link @(ViewData["ActiveSidebar"]?.ToString() == "liContactInfo" ? "alert-primary" : "") ">
                                 <i class='nav-icon  fas fa-phone' style='font-size:18px'></i>
                                 <p>
                                     Contact Info
@@ -119,6 +119,15 @@
                                 <i class='nav-icon  fas fa-address-card' style='font-size:18px'></i>
                                 <p>
                                     About Us
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/SliderImages/Index" class="nav-link @(ViewData["ActiveSidebar"]?.ToString() == "liSliderImages" ? "alert-primary" : "")  ">
+                                <i class='nav-icon  fas fa-image' style='font-size:18px'></i>
+                                <p>
+                                    Slider Images
                                 </p>
                             </a>
                         </li>

@@ -16,7 +16,7 @@
                         Search
                     </h3>
                     <div class="card-tools">
-                        <a href="/Product/Create" class="btn btn-bloks btn-success">Add</a>
+                        <a href="CreateProduct" class="btn btn-bloks btn-success">Add</a>
                         <button type="button" class="btn btn-tool collapsed " data-card-widget="collapse">
                             <i class="fas fa-plus"></i>
                         </button>
@@ -76,7 +76,7 @@
                                 </td>
 
                                 <td>@item.Name</td>
-                                <td>@item.Description</td>
+                                <td data-visible="false">@item.Description</td>
                                 <td>@item.Category.Name</td>
                                 <td>
                                     <a class="btn btn-success btn-sm" asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id">

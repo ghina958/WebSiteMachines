@@ -1,17 +1,17 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Web.ViewModels.OurTeam;
 using Web.ViewModels.SliderImages;
 using WebSiteMachines.Interfaces;
 using WebSiteMachines.Models;
-using WebSiteMachines.Repositories;
 
 namespace Web.Controllers
 {
 	[Authorize(Roles = "Admin")]
 	public class SliderImagesController : Controller
 	{
-		private readonly ISliderImagesService _sliderImagesService;
+        #region Fields
+
+        private readonly ISliderImagesService _sliderImagesService;
 		private readonly IPhotoService _photoService;
 
 		public SliderImagesController(ISliderImagesService sliderImagesService, IPhotoService photoService)
@@ -19,7 +19,10 @@ namespace Web.Controllers
 			_sliderImagesService = sliderImagesService;
 			_photoService = photoService;
 		}
-		public async Task<IActionResult> Index()
+        #endregion
+
+        [HttpGet, Route("/SliderImages/Index")]
+        public async Task<IActionResult> Index()
 		{
 			var model = await _sliderImagesService.GetAll();
 
@@ -31,7 +34,8 @@ namespace Web.Controllers
 			return View(VM);
 		}
 
-		public async Task<IActionResult> Create()
+        [HttpGet, Route("/CreateSliderImages")]
+        public async Task<IActionResult> Create()
 		{
 			var model = new SliderImagesUpsertViewModel();
 
@@ -39,7 +43,7 @@ namespace Web.Controllers
 
 		}
 
-		[HttpPost]
+		[HttpPost, Route("/CreateSliderImages")]
 		public async Task<IActionResult> Create(SliderImagesUpsertViewModel VM)
 		{
 			if (!ModelState.IsValid)
@@ -78,7 +82,8 @@ namespace Web.Controllers
 
 		}
 
-		public async Task<IActionResult> Edit(int id)
+        [HttpGet, Route("/EditSliderImages")]
+        public async Task<IActionResult> Edit(int id)
 		{
 			var model = await _sliderImagesService.GetById(id);
 			if (model == null) return View(null);
@@ -93,7 +98,7 @@ namespace Web.Controllers
 
 		}
 
-		[HttpPost]
+		[HttpPost, Route("/EditSliderImages")]
 		public async Task<IActionResult> Edit(int id ,SliderImagesUpsertViewModel VM)
 		{
 			if (!ModelState.IsValid)
@@ -126,5 +131,25 @@ namespace Web.Controllers
 			ModelState.AddModelError("", "Invalid data provided");
 			return View(VM);
 		}
-	}
+
+        [HttpGet, Route("/DeleteSliderImages")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var entity = await _sliderImagesService.GetById(id);
+            if (entity == null) return View("Error");
+
+            return View(entity);
+        }
+
+        [HttpPost, ActionName("Delete") ,Route("/DeleteSliderImages")]
+        public async Task<ActionResult> DeleteSlider(int id)
+        {
+            var entity = await _sliderImagesService.GetById(id);
+            if (entity == null) return View("Error");
+
+            _sliderImagesService.Delete(entity);
+            return RedirectToAction("Index");
+        }
+
+    }
 }

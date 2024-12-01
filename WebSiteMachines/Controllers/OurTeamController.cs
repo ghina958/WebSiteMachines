@@ -3,11 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 using Web.ViewModels.OurTeam;
 using WebSiteMachines.Interfaces;
 using WebSiteMachines.Models;
-using WebSiteMachines.Repositories;
+
 
 namespace WebSiteMachines.Controllers
 {
     [Authorize(Roles = "Admin")]
+
+    #region Fields
     public class OurTeamController : Controller
     {
         private readonly IOurTeamService _ourTeamService;
@@ -18,7 +20,11 @@ namespace WebSiteMachines.Controllers
             _ourTeamService = ourTeamService;
             _photoService = photoService;
         }
-        public async Task<IActionResult> Index()
+        #endregion
+
+
+        [HttpGet, Route("/OurTeam/Index")]
+		public async Task<IActionResult> Index()
         {
             var model = await _ourTeamService.GetAll();
 
@@ -30,7 +36,8 @@ namespace WebSiteMachines.Controllers
             return View(VM);
         }
 
-        public async Task<IActionResult> Create()
+		[HttpGet, Route("/CreateOurTeam")]
+		public async Task<IActionResult> Create()
         {
             var model = new OurTeamUpsertViewModel();
 
@@ -38,7 +45,7 @@ namespace WebSiteMachines.Controllers
 
         }
 
-        [HttpPost] 
+        [HttpPost , Route("/CreateOurTeam")] 
         public async Task<IActionResult> Create(OurTeamUpsertViewModel Vm)
         {
             if (!ModelState.IsValid)
@@ -75,7 +82,8 @@ namespace WebSiteMachines.Controllers
             return View(Vm);
         }
 
-        public async Task<ActionResult> Edit(int id)
+		[HttpGet, Route("/EditOurTeam")]
+		public async Task<ActionResult> Edit(int id)
         {
             OurTeam ourTeam = await _ourTeamService.GetById(id);
             if (ourTeam == null) return NotFound();
@@ -91,7 +99,7 @@ namespace WebSiteMachines.Controllers
             return View(VM);
         }
 
-        [HttpPost]
+        [HttpPost, Route("/EditOurTeam")]
         public async Task<ActionResult> Edit(int id , OurTeamUpsertViewModel VM)
         {
             if (!ModelState.IsValid)
@@ -128,7 +136,8 @@ namespace WebSiteMachines.Controllers
             return View(VM);
         }
 
-        public async Task<ActionResult> Delete(int id)
+		[HttpGet, Route("/DeleteOurTeam")]
+		public async Task<ActionResult> Delete(int id)
         {
             var member = await _ourTeamService.GetById(id);
             if (member == null) return View("Error");
@@ -136,7 +145,7 @@ namespace WebSiteMachines.Controllers
             return View(member);
         }
 
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Delete") , Route("/DeleteOurTeam")]
         public async Task<IActionResult> DeleteMember(int id)
         {
             var member = await _ourTeamService.GetById(id);

@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using WebSiteMachines.FiltersModel;
 using WebSiteMachines.Interfaces;
 using WebSiteMachines.Models;
-using WebSiteMachines.Repositories;
 using WebSiteMachines.ViewModels.Category;
 using WebSiteMachines.ViewModels.Product;
 
@@ -12,6 +11,8 @@ namespace WebSiteMachines.Controllers
 {
     public class CategoryController : Controller
     {
+        #region Fields
+
         private readonly ICategoryService _categoryService;
         private readonly IProductService _productService;
         private readonly IPhotoService _photoService;
@@ -22,9 +23,9 @@ namespace WebSiteMachines.Controllers
             _productService = productService;
             _photoService = photoService;
         }
+        #endregion
 
-
-
+        [HttpGet, Route("/DropdownCategory")]
         public async Task<IActionResult> DropdownSolution()
         {
             var all = await _categoryService.GetAllCategories(new CategoryFilter ());
@@ -37,7 +38,8 @@ namespace WebSiteMachines.Controllers
 			return PartialView("_SelectListNav", model);
 		}
 
-		public async Task<IActionResult> DropdownSolutionİtems(int id)
+        [HttpGet, Route("/Dropdownİtems")]
+        public async Task<IActionResult> DropdownSolutionİtems(int id)
 		{
 			if (id <= 0)
 			{
@@ -56,6 +58,7 @@ namespace WebSiteMachines.Controllers
         #region Admin area
 
         [Authorize(Roles = "Admin")]
+        [HttpGet, Route("/Category/Index")]
         public async Task<IActionResult> Index()
         {
             var allcategory = await _categoryService.GetAllCategories(new CategoryFilter());
@@ -68,7 +71,7 @@ namespace WebSiteMachines.Controllers
         }
 
        
-        [HttpPost]
+        [HttpPost, Route("/Category/Index")]
         public async Task<IActionResult> Index(CategoryFilter filter)
         {
             var allcategory = await _categoryService.GetAllCategories(filter);
@@ -80,15 +83,15 @@ namespace WebSiteMachines.Controllers
         }
 
         [Authorize(Roles = "Admin")]
+        [HttpGet, Route("/CreateCategory")]
         public async Task<IActionResult> Create()
         {
             var model = new CategoryUpsertViewModel();
             return View(model);
 
         }
-
       
-        [HttpPost]
+        [HttpPost, Route("/CreateCategory")]
         public async Task<IActionResult> Create(CategoryUpsertViewModel Vm)
         {
             if (ModelState.IsValid)
@@ -126,6 +129,7 @@ namespace WebSiteMachines.Controllers
         }
 
         [Authorize(Roles = "Admin")]
+        [HttpGet, Route("/EditCategory")]
         public async Task<ActionResult> Edit(int id)
         {
             Category category = await _categoryService.GetCategoryById(id);
@@ -142,8 +146,7 @@ namespace WebSiteMachines.Controllers
             return View(VM);
         }
 
-       
-        [HttpPost]
+        [HttpPost, Route("/EditCategory")]
         public async Task<ActionResult> Edit(int id, CategoryUpsertViewModel VM)
         {
             if (ModelState.IsValid)
@@ -181,6 +184,7 @@ namespace WebSiteMachines.Controllers
         }
 
         [Authorize(Roles = "Admin")]
+        [HttpGet, Route("/DeleteCategory")]
         public async Task<ActionResult> Delete(int id)
         {
             var cat = await _categoryService.GetCategoryById(id);
@@ -193,8 +197,7 @@ namespace WebSiteMachines.Controllers
             return View(cat);
         }
 
-       
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Delete"), Route("/DeleteCategory")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
             var cat = await _categoryService.GetCategoryById(id);
