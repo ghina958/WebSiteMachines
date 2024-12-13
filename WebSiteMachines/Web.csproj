@@ -25,10 +25,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="wwwroot\images\AboutUs\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <UpToDateCheckInput Remove="Views\Auth\AccessDenied.cshtml" />
 	</ItemGroup>
 

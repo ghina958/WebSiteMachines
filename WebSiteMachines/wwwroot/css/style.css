@@ -2831,9 +2831,9 @@ select.g-select[option="selected"] {
 * Inner Banner styles 
 ***************************/
 .inner-banner {
-  background: #a0a19b;
-  background-size: cover;
-  padding: 130px 0;
+    background: #a0a19b;
+    background-size: cover;
+    padding: 130px 0;
 }
 
 .inner-banner h3 {

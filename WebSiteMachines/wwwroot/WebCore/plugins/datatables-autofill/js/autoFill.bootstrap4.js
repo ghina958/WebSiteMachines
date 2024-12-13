@@ -41,3 +41,4 @@ DataTable.AutoFill.classes.btn = 'btn btn-primary';
 
 return DataTable;
 }));
+

@@ -7,16 +7,15 @@
 }
 
 <div class="boxed_wrapper">
-	<!-- /main foto -->
-	<div class="inner-banner has-base-color-overlay text-center" style="background: url(@Model.MainImagePath);">
-		@* <img src="@Model.MainImagePath" > *@
+	<div class="inner-banner has-base-color-overlay text-center" style="background: url(@Model.MainImagePath) no-repeat ; background-size: 100% 130%; background-position: center; ">
+
 		<div class="container">
 			<div class="box">
 				<h3>@Model.Title</h3>
 			</div>
 		</div>
 	</div>
-
+	
 	<section class="about-industries sec_padd">
 		<div class="container">
 			<div class="section-title">
@@ -30,29 +29,6 @@
 					</div>
 				</div>
 			</div>
-			@* <div class="row">
-				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-					<div class="text">
-						<p>@Model.Description</p>
-					</div>
-					<br>
-					<br>
-				</div>
-				<div class="column col-md-6 col-sm-12 col-xs-12">
-					<div class="section-title inner">
-						<h2>Billing Address</h2>
-						<span class="decor"></span>
-					</div>
-					<div class="text">
-						<p>
-							Denouncing pleasure and praising pain was born and I will give you a complete account of the system expound the actual se teachings the great explorere of <br>the truth, the master-builder of human happiness.
-						</p>
-					</div>
-					<br>
-					<div class="border-bottom"></div>
-					<br>
-				</div>
-			</div> *@
 			<br><br>
 			<div class="border-bottom"></div>
 		</div>
@@ -60,13 +36,6 @@
 
 	<partial name="_OurTeam" />
 
-@* 
-	<section class="clients-section">
-		<div class="container">
-			<div class="client-carousel owl-carousel owl-theme">
 
-			</div>
-		</div>
-	</section> *@
 	
 </div>

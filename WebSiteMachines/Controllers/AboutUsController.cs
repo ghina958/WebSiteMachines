@@ -72,7 +72,7 @@ namespace WebSiteMachines.Controllers
                 entity.ImagePath = imageUrl;
 
                 _aboutUsService.Update(entity);
-				return RedirectToAction("IndexHome");
+				return RedirectToAction("Index" , "DashboardAdmin");
 			}
             return View(vm);
         }

@@ -51,7 +51,8 @@
                         <tr>
                             <th>Image</th>
                             <th>Name</th>
-                            <th data-visible="false">Description</th>
+                          @*   style="display: none;" *@
+                            <th style="display: none;">Description</th>
                              <th>Options</th>
                         </tr>
                     </thead>
@@ -63,7 +64,7 @@
                                     <img src="@item.CategoryImage" class="img-circle img-size-50 mr-5">
                                 </td>
                                 <td>@item.Name</td>
-                                <td>@item.Description</td>
+                                <td style="display: none;">@item.Description</td>
                                 <td>
                                         <a class="btn btn-success btn-sm" asp-controller="Category" asp-action="Edit" asp-route-id="@item.Id">
                                             <i class='fas fa-edit'></i>
@@ -80,3 +81,5 @@
         </div>
     </div>
 </div>
+
+ 

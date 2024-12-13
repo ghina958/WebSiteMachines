@@ -116,9 +116,9 @@ namespace WebSiteMachines.Controllers
 
 
                 _contactInfoService.Update(entity);
-                return RedirectToAction("Index");
+				return RedirectToAction("Index", "DashboardAdmin");
 
-            }
+			}
             return View(vm);
 
         }
